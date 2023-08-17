@@ -11,9 +11,9 @@ namespace ActivityOne
 {
     public partial class LoginForm : Form
     {
-        private int failedLoginAttempts = 0;
-        private const int maxFailedAttempts = 3; // Maximum allowed failed attempts\
-        private Dictionary<string, CreateAccount.Account> registeredAccounts = new Dictionary<string, CreateAccount.Account>();
+        private Dictionary<string, string> RegisteredAccounts = new Dictionary<string, string>();
+        int Failedlogin;
+        int LoginAttempt;
         public LoginForm()
         {
             InitializeComponent();
@@ -42,54 +42,26 @@ namespace ActivityOne
         }
         private void SigninButton_Click(object sender, EventArgs e)
         {
-            string enteredUsername = Username.Text;
-            string enteredPassword = Password.Text;
+            String username, password;
+            username = Username.Text;
+            password = Password.Text;  
 
-            if (registeredAccounts.ContainsKey(enteredUsername))
+            if (username == "admin" && password == "admin123")
             {
-                CreateAccount.Account account = registeredAccounts[enteredUsername];
-
-                if (account.Password == enteredPassword)
-                {
-                    MessageBox.Show($"Logged in successfully as {enteredUsername}.");
-                    failedLoginAttempts = 0;
-                }
-                else
-                {
-                    failedLoginAttempts++;
-                    int attemptsLeft = maxFailedAttempts - failedLoginAttempts;
-
-                    if (attemptsLeft > 0)
-                    {
-                        MessageBox.Show($"Invalid login for {enteredUsername}. {attemptsLeft} attempts left.");
-                    }
-                    else
-                    {
-                        failedLoginAttempts = maxFailedAttempts;
-                        MessageBox.Show("Account is now locked due to too many failed attempts. Please contact support.");
-                    }
-                }
-            }
-            else
+                //admin form open
+            } else if (RegisteredAccounts.ContainsKey(username) && RegisteredAccounts[username] == password)
             {
-                MessageBox.Show("Invalid username.");
+                    CreateAccount CreateAccount = new CreateAccount();
+                    CreateAccount.ShowDialog();
+                    this.MinimizeBox = true;
+            } else
+            {
+                
             }
-
-            Username.Text = "";
-            Password.Text = "";
         }
-
-        private bool IsAccountLocked()
-        {
-            return failedLoginAttempts >= maxFailedAttempts;
-        }
-
         private void Createbtn_Click(object sender, EventArgs e)
         {
-            CreateAccount CreateAccount = new CreateAccount();
-            CreateAccount.ShowDialog();
 
-            registeredAccounts = CreateAccount.GetRegisteredAccounts();
         }
     }
 }
