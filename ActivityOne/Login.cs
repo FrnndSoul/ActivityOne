@@ -18,10 +18,8 @@ namespace ActivityOne
             InitializeComponent();
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
-            if (adminFormInstance == null || adminFormInstance.IsDisposed)
-            {
-                adminFormInstance = new AdminForm();
-            }
+
+            adminFormInstance = new AdminForm();            
             adminFormInstance.Show();
             adminFormInstance.DeleteFirstRow();
             adminFormInstance.Hide();
@@ -82,7 +80,7 @@ namespace ActivityOne
 
                 if (activationStatus != "Activated")
                 {
-                    MessageBox.Show("Your account is not activated yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Your account is not active.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Username.Text = "";
                     Password.Text = "";
                     return;
@@ -131,5 +129,10 @@ namespace ActivityOne
             }
         }
 
+        private void Forgotbtn_Click(object sender, EventArgs e)
+        {
+            ForgotPassword forgotPassword = new ForgotPassword();
+            forgotPassword.ShowDialog();
+        }
     }
 }
