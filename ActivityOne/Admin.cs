@@ -39,7 +39,32 @@ namespace ActivityOne
         }
         public void AddUserToDataGridView(string name, string username, string email, string password)
         {
-            UserInfo.Rows.Add(name, username, email, password, "Activated");
+            UserInfo.Rows.Add(name, username, email, password, "Deactivated");
+        }
+        public bool IsUsernameTaken(string username)
+        {
+            // Assuming you have a DataGridView named UserInfo on AdminForm
+            foreach (DataGridViewRow row in UserInfo.Rows)
+            {
+                if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == username)
+                {
+                    return true; // Username is taken
+                }
+            }
+            return false; // Username is not taken
+        }
+
+        public bool IsEmailTaken(string email)
+        {
+            // Assuming you have a DataGridView named UserInfo on AdminForm
+            foreach (DataGridViewRow row in UserInfo.Rows)
+            {
+                if (row.Cells["tblEmail"].Value != null && row.Cells["tblEmail"].Value.ToString() == email)
+                {
+                    return true; // Username is taken
+                }
+            }
+            return false; // Username is not taken
         }
 
         private void Backbtn_Click(object sender, EventArgs e)

@@ -20,7 +20,6 @@ namespace ActivityOne
             InitializeComponent();
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
-
         }
         private void Form1_Load(object sender, EventArgs e)
         {
