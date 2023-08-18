@@ -35,6 +35,7 @@
             this.tblPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblActivation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Backbtn = new System.Windows.Forms.Button();
+            this.tblPUK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@
             this.tblUsername,
             this.tblEmail,
             this.tblPassword,
-            this.tblActivation});
+            this.tblActivation,
+            this.tblPUK});
             this.UserInfo.Location = new System.Drawing.Point(13, 13);
             this.UserInfo.Name = "UserInfo";
             this.UserInfo.ReadOnly = true;
@@ -108,6 +110,14 @@
             this.Backbtn.UseVisualStyleBackColor = true;
             this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
+            // tblPUK
+            // 
+            this.tblPUK.HeaderText = "PUK";
+            this.tblPUK.MinimumWidth = 6;
+            this.tblPUK.Name = "tblPUK";
+            this.tblPUK.ReadOnly = true;
+            this.tblPUK.Width = 125;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -132,5 +142,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tblPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblActivation;
         private System.Windows.Forms.Button Backbtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tblPUK;
     }
 }

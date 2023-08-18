@@ -39,7 +39,7 @@ namespace ActivityOne
         }
         public void AddUserToDataGridView(string name, string username, string email, string password)
         {
-            UserInfo.Rows.Add(name, username, email, password, "Deactivated");
+            UserInfo.Rows.Add(name, username, email, password, "Deactivated", "0");
         }
         public bool IsUsernameTaken(string username)
         {
