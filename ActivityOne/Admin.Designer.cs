@@ -34,8 +34,9 @@
             this.tblEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblActivation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Backbtn = new System.Windows.Forms.Button();
             this.tblPUK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Backbtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,13 +52,14 @@
             this.tblPassword,
             this.tblActivation,
             this.tblPUK});
-            this.UserInfo.Location = new System.Drawing.Point(13, 13);
+            this.UserInfo.Location = new System.Drawing.Point(10, 11);
+            this.UserInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UserInfo.Name = "UserInfo";
             this.UserInfo.ReadOnly = true;
             this.UserInfo.RowHeadersWidth = 51;
             this.UserInfo.RowTemplate.Height = 24;
             this.UserInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.UserInfo.Size = new System.Drawing.Size(775, 387);
+            this.UserInfo.Size = new System.Drawing.Size(581, 290);
             this.UserInfo.TabIndex = 0;
             this.UserInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -101,16 +103,6 @@
             this.tblActivation.Name = "tblActivation";
             this.tblActivation.ReadOnly = true;
             // 
-            // Backbtn
-            // 
-            this.Backbtn.Location = new System.Drawing.Point(651, 406);
-            this.Backbtn.Name = "Backbtn";
-            this.Backbtn.Size = new System.Drawing.Size(137, 32);
-            this.Backbtn.TabIndex = 2;
-            this.Backbtn.Text = "Back";
-            this.Backbtn.UseVisualStyleBackColor = true;
-            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
-            // 
             // tblPUK
             // 
             this.tblPUK.HeaderText = "PUK";
@@ -119,13 +111,36 @@
             this.tblPUK.ReadOnly = true;
             this.tblPUK.Width = 125;
             // 
+            // Backbtn
+            // 
+            this.Backbtn.Location = new System.Drawing.Point(488, 330);
+            this.Backbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Backbtn.Name = "Backbtn";
+            this.Backbtn.Size = new System.Drawing.Size(103, 26);
+            this.Backbtn.TabIndex = 2;
+            this.Backbtn.Text = "Back";
+            this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(10, 330);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Activate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.UserInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminForm";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -144,5 +159,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tblActivation;
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblPUK;
+        private System.Windows.Forms.Button button1;
     }
 }

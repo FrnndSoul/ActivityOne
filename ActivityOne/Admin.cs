@@ -37,6 +37,21 @@ namespace ActivityOne
         {
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (UserInfo.SelectedRows.Count > 0)
+            {
+                // Get the first selected row
+                DataGridViewRow row = UserInfo.SelectedRows[0];
+
+                // Change the value of the cell in the specific column. 
+                // Replace "ColumnName" with the name of your column.
+                row.Cells[4].Value = "Activated";
+            }
+        }
+
         public void AddUserToDataGridView(string name, string username, string email, string password)
         {
             UserInfo.Rows.Add(name, username, email, password, "Deactivated", "0");
