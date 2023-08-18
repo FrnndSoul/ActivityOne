@@ -14,11 +14,13 @@ namespace ActivityOne
         private Dictionary<string, string> RegisteredAccounts = new Dictionary<string, string>();
         int Failedlogin;
         int LoginAttempt;
+        private AdminForm adminFormInstance;
         public LoginForm()
         {
             InitializeComponent();
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -48,13 +50,21 @@ namespace ActivityOne
 
             if (username == "admin" && password == "admin123")
             {
-                AdminForm adminForm = new AdminForm();
-                adminForm.ShowDialog();
+                if (adminFormInstance == null || adminFormInstance.IsDisposed)
+                {
+                    adminFormInstance = new AdminForm();
+                }
+
+                // Show the adminFormInstance
+                adminFormInstance.Show();
+
+                Username.Text = "";
+                Password.Text = "";
             } else if (RegisteredAccounts.ContainsKey(username) && RegisteredAccounts[username] == password)
             {
-                    CreateAccount CreateAccount = new CreateAccount();
-                    CreateAccount.ShowDialog();
-                    this.MinimizeBox = true;
+                this.MinimizeBox = true;
+                Username.Text = "";
+                Password.Text = "";
             } else
             {
                
@@ -64,7 +74,6 @@ namespace ActivityOne
         {
             CreateAccount createAccount = new CreateAccount();
             createAccount.Show();
-            this.Close();
         }
     }
 }

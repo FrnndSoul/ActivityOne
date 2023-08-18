@@ -36,7 +36,7 @@
             this.Username = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Passwordbox = new System.Windows.Forms.TextBox();
+            this.PasswordBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ShowPassBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -109,12 +109,12 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Email";
             // 
-            // Passwordbox
+            // PasswordBox
             // 
-            this.Passwordbox.Location = new System.Drawing.Point(12, 160);
-            this.Passwordbox.Name = "Passwordbox";
-            this.Passwordbox.Size = new System.Drawing.Size(287, 22);
-            this.Passwordbox.TabIndex = 9;
+            this.PasswordBox.Location = new System.Drawing.Point(12, 160);
+            this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.Size = new System.Drawing.Size(287, 22);
+            this.PasswordBox.TabIndex = 9;
             // 
             // label4
             // 
@@ -141,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 262);
             this.Controls.Add(this.ShowPassBox);
-            this.Controls.Add(this.Passwordbox);
+            this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.label3);
@@ -151,6 +151,7 @@
             this.Controls.Add(this.Name);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Registerbtn);
+            this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,7 +167,7 @@
         private System.Windows.Forms.TextBox Username;
         private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Passwordbox;
+        private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox ShowPassBox;
     }

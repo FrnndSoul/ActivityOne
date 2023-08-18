@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UserInfo = new System.Windows.Forms.DataGridView();
             this.tblName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblActivation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Backbtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // UserInfo
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UserInfo.AllowUserToAddRows = false;
+            this.UserInfo.AllowUserToDeleteRows = false;
+            this.UserInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UserInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tblName,
             this.tblUsername,
             this.tblEmail,
             this.tblPassword,
             this.tblActivation});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(775, 339);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.UserInfo.Location = new System.Drawing.Point(13, 13);
+            this.UserInfo.Name = "UserInfo";
+            this.UserInfo.ReadOnly = true;
+            this.UserInfo.RowHeadersWidth = 51;
+            this.UserInfo.RowTemplate.Height = 24;
+            this.UserInfo.Size = new System.Drawing.Size(775, 387);
+            this.UserInfo.TabIndex = 0;
+            this.UserInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tblName
             // 
@@ -114,18 +114,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Backbtn);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.UserInfo);
             this.Name = "AdminForm";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView UserInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblName;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblUsername;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblEmail;

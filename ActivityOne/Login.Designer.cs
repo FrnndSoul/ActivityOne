@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 450);
+            this.ClientSize = new System.Drawing.Size(311, 450);
             this.Controls.Add(this.Createbtn);
             this.Controls.Add(this.Forgotbtn);
             this.Controls.Add(this.SigninButton);
