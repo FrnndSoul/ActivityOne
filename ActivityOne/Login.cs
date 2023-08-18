@@ -12,14 +12,21 @@ namespace ActivityOne
     public partial class LoginForm : Form
     {
         private Dictionary<string, string> RegisteredAccounts = new Dictionary<string, string>();
-        int Failedlogin;
-        int LoginAttempt;
         private AdminForm adminFormInstance;
+        
         public LoginForm()
         {
             InitializeComponent();
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
+
+            if (adminFormInstance == null || adminFormInstance.IsDisposed)
+            {
+                adminFormInstance = new AdminForm();
+            }
+
+            adminFormInstance.Show();
+            adminFormInstance.Hide();
         }
         private void Form1_Load(object sender, EventArgs e)
         {

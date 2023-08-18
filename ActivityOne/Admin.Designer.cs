@@ -56,6 +56,7 @@
             this.UserInfo.ReadOnly = true;
             this.UserInfo.RowHeadersWidth = 51;
             this.UserInfo.RowTemplate.Height = 24;
+            this.UserInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UserInfo.Size = new System.Drawing.Size(775, 387);
             this.UserInfo.TabIndex = 0;
             this.UserInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

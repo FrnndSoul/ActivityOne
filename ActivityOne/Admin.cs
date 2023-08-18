@@ -35,7 +35,7 @@ namespace ActivityOne
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
         public void AddUserToDataGridView(string name, string username, string email, string password)
         {

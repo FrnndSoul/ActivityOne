@@ -40,7 +40,6 @@ namespace ActivityOne
                 return; // Exit the method without proceeding further
             }
 
-            // If AdminForm is open, add user info to its DataGridView
             if (adminForm != null)
             {
                 adminForm.AddUserToDataGridView(name, username, email, password);
