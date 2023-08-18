@@ -55,6 +55,12 @@ namespace ActivityOne
         {
             return registeredAccounts;
         }
-        
+
+        private void Backbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }

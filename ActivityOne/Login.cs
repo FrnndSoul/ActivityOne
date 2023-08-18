@@ -48,7 +48,8 @@ namespace ActivityOne
 
             if (username == "admin" && password == "admin123")
             {
-                //admin form open
+                AdminForm adminForm = new AdminForm();
+                adminForm.ShowDialog();
             } else if (RegisteredAccounts.ContainsKey(username) && RegisteredAccounts[username] == password)
             {
                     CreateAccount CreateAccount = new CreateAccount();
@@ -56,12 +57,14 @@ namespace ActivityOne
                     this.MinimizeBox = true;
             } else
             {
-                
+               
             }
         }
         private void Createbtn_Click(object sender, EventArgs e)
         {
-
+            CreateAccount createAccount = new CreateAccount();
+            createAccount.Show();
+            this.Close();
         }
     }
 }

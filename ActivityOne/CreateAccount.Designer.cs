@@ -59,6 +59,7 @@
             this.Backbtn.TabIndex = 1;
             this.Backbtn.Text = "Back";
             this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
             // Name
             // 
