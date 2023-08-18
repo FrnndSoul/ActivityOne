@@ -34,8 +34,9 @@
             this.tblEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblActivation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Backbtn = new System.Windows.Forms.Button();
             this.tblPUK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Backbtn = new System.Windows.Forms.Button();
+            this.Activate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +102,14 @@
             this.tblActivation.Name = "tblActivation";
             this.tblActivation.ReadOnly = true;
             // 
+            // tblPUK
+            // 
+            this.tblPUK.HeaderText = "PUK";
+            this.tblPUK.MinimumWidth = 6;
+            this.tblPUK.Name = "tblPUK";
+            this.tblPUK.ReadOnly = true;
+            this.tblPUK.Width = 125;
+            // 
             // Backbtn
             // 
             this.Backbtn.Location = new System.Drawing.Point(651, 406);
@@ -111,19 +120,22 @@
             this.Backbtn.UseVisualStyleBackColor = true;
             this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
-            // tblPUK
+            // Activate
             // 
-            this.tblPUK.HeaderText = "PUK";
-            this.tblPUK.MinimumWidth = 6;
-            this.tblPUK.Name = "tblPUK";
-            this.tblPUK.ReadOnly = true;
-            this.tblPUK.Width = 125;
+            this.Activate.Location = new System.Drawing.Point(13, 407);
+            this.Activate.Name = "Activate";
+            this.Activate.Size = new System.Drawing.Size(137, 31);
+            this.Activate.TabIndex = 3;
+            this.Activate.Text = "Activate";
+            this.Activate.UseVisualStyleBackColor = true;
+            this.Activate.Click += new System.EventHandler(this.Activate_Click);
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Activate);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.UserInfo);
             this.Name = "AdminForm";
@@ -144,5 +156,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tblActivation;
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblPUK;
+        private System.Windows.Forms.Button Activate;
     }
 }

@@ -11,6 +11,7 @@ namespace ActivityOne
         {
             InitializeComponent();
             PasswordBox.PasswordChar = '*';
+            ShowPassBox.CheckedChanged += ShowPass_CheckedChanged;
         }
         private void ShowPass_CheckedChanged(object sender, EventArgs e)
         {
@@ -24,31 +25,40 @@ namespace ActivityOne
             string email = Email.Text;
             string password = PasswordBox.Text;
 
-            // Find the open AdminForm (if it's open)
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             AdminForm adminForm = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
-
-            // Check if the username is already used
-            if (adminForm != null && adminForm.IsUsernameTaken(username))
-            {
-                MessageBox.Show("Username is already taken. Please choose a different username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Exit the method without proceeding further
-            }
-
-            if (adminForm != null && adminForm.IsEmailTaken(email))
-            {
-                MessageBox.Show("Email is used by a different account. Please choose a different email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Exit the method without proceeding further
-            }
 
             if (adminForm != null)
             {
+                if (adminForm.IsUsernameTaken(username))
+                {
+                    MessageBox.Show("Username already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (adminForm.IsEmailTaken(email))
+                {
+                    MessageBox.Show("Email already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 adminForm.AddUserToDataGridView(name, username, email, password);
+                MessageBox.Show("Registration is awaiting approval, hang tight!");
+                this.Close();
             }
         }
-
         private void Backbtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
+        }
+        private bool IsValidEmail(string email)
+        {
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return System.Text.RegularExpressions.Regex.IsMatch(email, pattern);
         }
 
         private void CreateAccount_Load(object sender, EventArgs e)
