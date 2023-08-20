@@ -221,7 +221,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(416, 447);
+            this.ClientSize = new System.Drawing.Size(426, 447);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -234,6 +234,7 @@
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Registerbtn);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.panel4.ResumeLayout(false);

@@ -10,6 +10,8 @@ namespace ActivityOne
         public CreateAccount()
         {
             InitializeComponent();
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             PasswordBox.PasswordChar = '*';
             ShowPassBox.CheckedChanged += ShowPass_CheckedChanged;
         }

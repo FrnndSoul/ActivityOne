@@ -16,6 +16,9 @@ namespace ActivityOne
         public LoginForm()
         {
             InitializeComponent();
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
             
