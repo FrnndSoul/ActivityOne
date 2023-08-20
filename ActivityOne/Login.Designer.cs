@@ -42,7 +42,7 @@
             // 
             // Username
             // 
-            this.Username.Location = new System.Drawing.Point(9, 215);
+            this.Username.Location = new System.Drawing.Point(104, 216);
             this.Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(211, 20);
@@ -51,7 +51,7 @@
             // 
             // Password
             // 
-            this.Password.Location = new System.Drawing.Point(9, 251);
+            this.Password.Location = new System.Drawing.Point(104, 277);
             this.Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(211, 20);
@@ -61,7 +61,7 @@
             // UserLabel
             // 
             this.UserLabel.AutoSize = true;
-            this.UserLabel.Location = new System.Drawing.Point(9, 200);
+            this.UserLabel.Location = new System.Drawing.Point(101, 201);
             this.UserLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.UserLabel.Name = "UserLabel";
             this.UserLabel.Size = new System.Drawing.Size(68, 13);
@@ -72,7 +72,7 @@
             // PassLabel
             // 
             this.PassLabel.AutoSize = true;
-            this.PassLabel.Location = new System.Drawing.Point(9, 236);
+            this.PassLabel.Location = new System.Drawing.Point(101, 262);
             this.PassLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PassLabel.Name = "PassLabel";
             this.PassLabel.Size = new System.Drawing.Size(70, 13);
@@ -82,7 +82,7 @@
             // Showpass
             // 
             this.Showpass.AutoSize = true;
-            this.Showpass.Location = new System.Drawing.Point(104, 274);
+            this.Showpass.Location = new System.Drawing.Point(104, 314);
             this.Showpass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Showpass.Name = "Showpass";
             this.Showpass.Size = new System.Drawing.Size(126, 17);
@@ -93,7 +93,7 @@
             // 
             // SigninButton
             // 
-            this.SigninButton.Location = new System.Drawing.Point(9, 295);
+            this.SigninButton.Location = new System.Drawing.Point(118, 360);
             this.SigninButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SigninButton.Name = "SigninButton";
             this.SigninButton.Size = new System.Drawing.Size(210, 34);
@@ -104,7 +104,7 @@
             // 
             // Forgotbtn
             // 
-            this.Forgotbtn.Location = new System.Drawing.Point(116, 334);
+            this.Forgotbtn.Location = new System.Drawing.Point(236, 451);
             this.Forgotbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Forgotbtn.Name = "Forgotbtn";
             this.Forgotbtn.Size = new System.Drawing.Size(103, 22);
@@ -115,7 +115,7 @@
             // 
             // Createbtn
             // 
-            this.Createbtn.Location = new System.Drawing.Point(9, 334);
+            this.Createbtn.Location = new System.Drawing.Point(104, 451);
             this.Createbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Createbtn.Name = "Createbtn";
             this.Createbtn.Size = new System.Drawing.Size(103, 22);
@@ -127,19 +127,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 121);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(124, 121);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(204, 25);
             this.label1.TabIndex = 8;
-            this.label1.Text = "USERNAME";
+            this.label1.Text = "Log in to your account";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(176)))), ((int)(((byte)(95)))));
-            this.label2.Location = new System.Drawing.Point(146, 62);
+            this.label2.Location = new System.Drawing.Point(141, 76);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(158, 45);
