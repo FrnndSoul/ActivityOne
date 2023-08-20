@@ -17,6 +17,7 @@ namespace ActivityOne
         public LoginForm()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
 
@@ -80,6 +81,16 @@ namespace ActivityOne
         {
             CreateAccount createAccount = new CreateAccount();
             createAccount.Show();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
