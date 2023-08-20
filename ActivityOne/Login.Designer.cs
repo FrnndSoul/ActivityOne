@@ -40,6 +40,7 @@
             this.SigninButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Username = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -82,23 +83,30 @@
             // 
             // Forgotbtn
             // 
-            this.Forgotbtn.Location = new System.Drawing.Point(236, 451);
+            this.Forgotbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Forgotbtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Forgotbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(176)))), ((int)(((byte)(95)))));
+            this.Forgotbtn.Location = new System.Drawing.Point(302, 319);
             this.Forgotbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Forgotbtn.Name = "Forgotbtn";
-            this.Forgotbtn.Size = new System.Drawing.Size(103, 22);
+            this.Forgotbtn.Size = new System.Drawing.Size(121, 22);
             this.Forgotbtn.TabIndex = 6;
-            this.Forgotbtn.Text = "Forgot Password";
+            this.Forgotbtn.Text = "Forgot Password?";
             this.Forgotbtn.UseVisualStyleBackColor = true;
             this.Forgotbtn.Click += new System.EventHandler(this.Forgotbtn_Click);
             // 
             // Createbtn
             // 
-            this.Createbtn.Location = new System.Drawing.Point(104, 451);
+            this.Createbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Createbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Createbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(176)))), ((int)(((byte)(95)))));
+            this.Createbtn.Location = new System.Drawing.Point(246, 490);
             this.Createbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Createbtn.Name = "Createbtn";
-            this.Createbtn.Size = new System.Drawing.Size(103, 22);
+            this.Createbtn.Size = new System.Drawing.Size(114, 22);
             this.Createbtn.TabIndex = 7;
             this.Createbtn.Text = "Create Account";
+            this.Createbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Createbtn.UseVisualStyleBackColor = true;
             this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
             // 
@@ -152,7 +160,9 @@
             this.SigninButton.BackColor = System.Drawing.Color.Transparent;
             this.SigninButton.BackgroundImage = global::ActivityOne.Properties.Resources.rect21;
             this.SigninButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SigninButton.Location = new System.Drawing.Point(54, 366);
+            this.SigninButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SigninButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SigninButton.Location = new System.Drawing.Point(54, 389);
             this.SigninButton.Margin = new System.Windows.Forms.Padding(2);
             this.SigninButton.Name = "SigninButton";
             this.SigninButton.Size = new System.Drawing.Size(369, 39);
@@ -183,12 +193,24 @@
             this.Username.TabIndex = 0;
             this.Username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(109, 492);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Dont have an account?";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(470, 570);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -226,6 +248,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -18,8 +18,11 @@ namespace ActivityOne
             InitializeComponent();
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
-            SigninButton.FlatStyle = FlatStyle.Flat;
+            
             SigninButton.FlatAppearance.BorderSize = 0;
+            Forgotbtn.FlatAppearance.BorderSize = 0;
+            Createbtn.FlatAppearance.BorderSize = 0;
+
             adminFormInstance = new AdminForm();            
             adminFormInstance.Show();
             adminFormInstance.DeleteFirstRow();
