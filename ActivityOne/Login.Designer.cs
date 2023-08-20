@@ -222,6 +222,7 @@
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login Form";
             this.Load += new System.EventHandler(this.Form1_Load);

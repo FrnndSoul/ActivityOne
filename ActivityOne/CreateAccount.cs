@@ -65,5 +65,10 @@ namespace ActivityOne
         {
 
         }
+
+        private void Name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace ActivityOne
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
             
+
             SigninButton.FlatAppearance.BorderSize = 0;
             Forgotbtn.FlatAppearance.BorderSize = 0;
             Createbtn.FlatAppearance.BorderSize = 0;
