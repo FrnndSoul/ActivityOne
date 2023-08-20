@@ -28,59 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Registerbtn = new System.Windows.Forms.Button();
             this.Backbtn = new System.Windows.Forms.Button();
-            this.Name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Username = new System.Windows.Forms.TextBox();
-            this.Email = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.PasswordBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ShowPassBox = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.PasswordBox = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Email = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Username = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Name = new System.Windows.Forms.TextBox();
+            this.Registerbtn = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Registerbtn
-            // 
-            this.Registerbtn.Location = new System.Drawing.Point(41, 363);
-            this.Registerbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Registerbtn.Name = "Registerbtn";
-            this.Registerbtn.Size = new System.Drawing.Size(103, 26);
-            this.Registerbtn.TabIndex = 0;
-            this.Registerbtn.Text = "Register";
-            this.Registerbtn.UseVisualStyleBackColor = true;
-            this.Registerbtn.Click += new System.EventHandler(this.Registerbtn_Click);
             // 
             // Backbtn
             // 
-            this.Backbtn.Location = new System.Drawing.Point(268, 363);
-            this.Backbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Backbtn.BackColor = System.Drawing.Color.Transparent;
+            this.Backbtn.BackgroundImage = global::ActivityOne.Properties.Resources.rect3;
+            this.Backbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Backbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Backbtn.Location = new System.Drawing.Point(220, 357);
+            this.Backbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Backbtn.Name = "Backbtn";
-            this.Backbtn.Size = new System.Drawing.Size(103, 26);
+            this.Backbtn.Size = new System.Drawing.Size(177, 50);
             this.Backbtn.TabIndex = 1;
             this.Backbtn.Text = "Back";
-            this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.UseVisualStyleBackColor = false;
             this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
-            // 
-            // Name
-            // 
-            this.Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name.Location = new System.Drawing.Point(13, 9);
-            this.Name.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(330, 22);
-            this.Name.TabIndex = 2;
-            this.Name.TextChanged += new System.EventHandler(this.Name_TextChanged);
             // 
             // label1
             // 
@@ -104,26 +86,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Username";
             // 
-            // Username
-            // 
-            this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.Location = new System.Drawing.Point(13, 9);
-            this.Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(330, 22);
-            this.Username.TabIndex = 5;
-            // 
-            // Email
-            // 
-            this.Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(13, 9);
-            this.Email.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(330, 22);
-            this.Email.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -134,16 +96,6 @@
             this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Email";
-            // 
-            // PasswordBox
-            // 
-            this.PasswordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordBox.Location = new System.Drawing.Point(13, 9);
-            this.PasswordBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.PasswordBox.Name = "PasswordBox";
-            this.PasswordBox.Size = new System.Drawing.Size(330, 22);
-            this.PasswordBox.TabIndex = 9;
             // 
             // label4
             // 
@@ -161,32 +113,32 @@
             this.ShowPassBox.AutoSize = true;
             this.ShowPassBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShowPassBox.Location = new System.Drawing.Point(41, 302);
-            this.ShowPassBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ShowPassBox.Margin = new System.Windows.Forms.Padding(2);
             this.ShowPassBox.Name = "ShowPassBox";
             this.ShowPassBox.Size = new System.Drawing.Size(107, 17);
             this.ShowPassBox.TabIndex = 10;
             this.ShowPassBox.Text = "Show Password";
             this.ShowPassBox.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // panel4
             // 
-            this.panel1.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.Name);
-            this.panel1.Location = new System.Drawing.Point(28, 68);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(369, 40);
-            this.panel1.TabIndex = 11;
+            this.panel4.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.PasswordBox);
+            this.panel4.Location = new System.Drawing.Point(28, 257);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(369, 40);
+            this.panel4.TabIndex = 14;
             // 
-            // panel2
+            // PasswordBox
             // 
-            this.panel2.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.Username);
-            this.panel2.Location = new System.Drawing.Point(28, 131);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(369, 40);
-            this.panel2.TabIndex = 12;
+            this.PasswordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PasswordBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordBox.Location = new System.Drawing.Point(13, 9);
+            this.PasswordBox.Margin = new System.Windows.Forms.Padding(2);
+            this.PasswordBox.Name = "PasswordBox";
+            this.PasswordBox.Size = new System.Drawing.Size(330, 22);
+            this.PasswordBox.TabIndex = 9;
             // 
             // panel3
             // 
@@ -198,15 +150,71 @@
             this.panel3.Size = new System.Drawing.Size(369, 40);
             this.panel3.TabIndex = 13;
             // 
-            // panel4
+            // Email
             // 
-            this.panel4.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel4.Controls.Add(this.PasswordBox);
-            this.panel4.Location = new System.Drawing.Point(28, 257);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(369, 40);
-            this.panel4.TabIndex = 14;
+            this.Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.Location = new System.Drawing.Point(13, 9);
+            this.Email.Margin = new System.Windows.Forms.Padding(2);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(330, 22);
+            this.Email.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.Username);
+            this.panel2.Location = new System.Drawing.Point(28, 131);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(369, 40);
+            this.panel2.TabIndex = 12;
+            // 
+            // Username
+            // 
+            this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.Location = new System.Drawing.Point(13, 9);
+            this.Username.Margin = new System.Windows.Forms.Padding(2);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(330, 22);
+            this.Username.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.Name);
+            this.panel1.Location = new System.Drawing.Point(28, 68);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(369, 40);
+            this.panel1.TabIndex = 11;
+            // 
+            // Name
+            // 
+            this.Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name.Location = new System.Drawing.Point(13, 9);
+            this.Name.Margin = new System.Windows.Forms.Padding(2);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(330, 22);
+            this.Name.TabIndex = 2;
+            this.Name.TextChanged += new System.EventHandler(this.Name_TextChanged);
+            // 
+            // Registerbtn
+            // 
+            this.Registerbtn.BackColor = System.Drawing.Color.Transparent;
+            this.Registerbtn.BackgroundImage = global::ActivityOne.Properties.Resources.rect3;
+            this.Registerbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Registerbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Registerbtn.Location = new System.Drawing.Point(28, 357);
+            this.Registerbtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Registerbtn.Name = "Registerbtn";
+            this.Registerbtn.Size = new System.Drawing.Size(167, 50);
+            this.Registerbtn.TabIndex = 0;
+            this.Registerbtn.Text = "Register";
+            this.Registerbtn.UseVisualStyleBackColor = false;
+            this.Registerbtn.Click += new System.EventHandler(this.Registerbtn_Click);
             // 
             // CreateAccount
             // 
@@ -225,17 +233,17 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Registerbtn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "CreateAccount";
             this.Load += new System.EventHandler(this.CreateAccount_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
