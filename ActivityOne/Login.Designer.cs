@@ -28,45 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Username = new System.Windows.Forms.TextBox();
-            this.Password = new System.Windows.Forms.TextBox();
             this.UserLabel = new System.Windows.Forms.Label();
             this.PassLabel = new System.Windows.Forms.Label();
             this.Showpass = new System.Windows.Forms.CheckBox();
-            this.SigninButton = new System.Windows.Forms.Button();
             this.Forgotbtn = new System.Windows.Forms.Button();
             this.Createbtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.Password = new System.Windows.Forms.TextBox();
+            this.SigninButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Username = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Username
-            // 
-            this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.Username.Location = new System.Drawing.Point(10, 9);
-            this.Username.Margin = new System.Windows.Forms.Padding(2);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(335, 22);
-            this.Username.TabIndex = 0;
-            this.Username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // Password
-            // 
-            this.Password.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Password.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.Password.Location = new System.Drawing.Point(10, 9);
-            this.Password.Margin = new System.Windows.Forms.Padding(2);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(342, 22);
-            this.Password.TabIndex = 1;
-            this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
             // 
             // UserLabel
             // 
@@ -103,17 +79,6 @@
             this.Showpass.Text = "Show Password";
             this.Showpass.UseVisualStyleBackColor = true;
             this.Showpass.CheckedChanged += new System.EventHandler(this.Showpass_CheckedChanged);
-            // 
-            // SigninButton
-            // 
-            this.SigninButton.Location = new System.Drawing.Point(54, 366);
-            this.SigninButton.Margin = new System.Windows.Forms.Padding(2);
-            this.SigninButton.Name = "SigninButton";
-            this.SigninButton.Size = new System.Drawing.Size(369, 34);
-            this.SigninButton.TabIndex = 5;
-            this.SigninButton.Text = "Sign In";
-            this.SigninButton.UseVisualStyleBackColor = true;
-            this.SigninButton.Click += new System.EventHandler(this.SigninButton_Click);
             // 
             // Forgotbtn
             // 
@@ -160,6 +125,42 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Welcome";
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.Password);
+            this.panel2.Location = new System.Drawing.Point(54, 278);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(369, 40);
+            this.panel2.TabIndex = 11;
+            // 
+            // Password
+            // 
+            this.Password.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Password.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.Password.Location = new System.Drawing.Point(10, 9);
+            this.Password.Margin = new System.Windows.Forms.Padding(2);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(342, 22);
+            this.Password.TabIndex = 1;
+            this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
+            // 
+            // SigninButton
+            // 
+            this.SigninButton.BackColor = System.Drawing.Color.Transparent;
+            this.SigninButton.BackgroundImage = global::ActivityOne.Properties.Resources.rect21;
+            this.SigninButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SigninButton.Location = new System.Drawing.Point(54, 366);
+            this.SigninButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SigninButton.Name = "SigninButton";
+            this.SigninButton.Size = new System.Drawing.Size(369, 39);
+            this.SigninButton.TabIndex = 5;
+            this.SigninButton.Text = "Sign In";
+            this.SigninButton.UseVisualStyleBackColor = false;
+            this.SigninButton.Click += new System.EventHandler(this.SigninButton_Click);
+            // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
@@ -170,15 +171,17 @@
             this.panel1.Size = new System.Drawing.Size(369, 40);
             this.panel1.TabIndex = 10;
             // 
-            // panel2
+            // Username
             // 
-            this.panel2.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.Password);
-            this.panel2.Location = new System.Drawing.Point(54, 278);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(369, 40);
-            this.panel2.TabIndex = 11;
+            this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.Username.Location = new System.Drawing.Point(10, 9);
+            this.Username.Margin = new System.Windows.Forms.Padding(2);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(335, 22);
+            this.Username.TabIndex = 0;
+            this.Username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // LoginForm
             // 
@@ -200,10 +203,10 @@
             this.Name = "LoginForm";
             this.Text = "Login Form";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
