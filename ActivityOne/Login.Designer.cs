@@ -85,7 +85,7 @@
             // 
             this.Forgotbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Forgotbtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Forgotbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(176)))), ((int)(((byte)(95)))));
+            this.Forgotbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(113)))), ((int)(((byte)(23)))));
             this.Forgotbtn.Location = new System.Drawing.Point(302, 319);
             this.Forgotbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Forgotbtn.Name = "Forgotbtn";
@@ -99,7 +99,7 @@
             // 
             this.Createbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Createbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Createbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(176)))), ((int)(((byte)(95)))));
+            this.Createbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(113)))), ((int)(((byte)(23)))));
             this.Createbtn.Location = new System.Drawing.Point(246, 490);
             this.Createbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Createbtn.Name = "Createbtn";
@@ -114,7 +114,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(122, 103);
+            this.label1.Location = new System.Drawing.Point(128, 103);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(204, 25);
@@ -126,7 +126,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(176)))), ((int)(((byte)(95)))));
-            this.label2.Location = new System.Drawing.Point(141, 58);
+            this.label2.Location = new System.Drawing.Point(152, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(158, 45);
