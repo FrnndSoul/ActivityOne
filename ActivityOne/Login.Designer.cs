@@ -43,7 +43,7 @@
             // Username
             // 
             this.Username.Location = new System.Drawing.Point(82, 178);
-            this.Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Username.Margin = new System.Windows.Forms.Padding(2);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(211, 20);
             this.Username.TabIndex = 0;
@@ -52,7 +52,7 @@
             // Password
             // 
             this.Password.Location = new System.Drawing.Point(82, 250);
-            this.Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Password.Margin = new System.Windows.Forms.Padding(2);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(211, 20);
             this.Password.TabIndex = 1;
@@ -83,7 +83,7 @@
             // 
             this.Showpass.AutoSize = true;
             this.Showpass.Location = new System.Drawing.Point(104, 274);
-            this.Showpass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Showpass.Margin = new System.Windows.Forms.Padding(2);
             this.Showpass.Name = "Showpass";
             this.Showpass.Size = new System.Drawing.Size(126, 17);
             this.Showpass.TabIndex = 4;
@@ -94,7 +94,7 @@
             // SigninButton
             // 
             this.SigninButton.Location = new System.Drawing.Point(78, 295);
-            this.SigninButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SigninButton.Margin = new System.Windows.Forms.Padding(2);
             this.SigninButton.Name = "SigninButton";
             this.SigninButton.Size = new System.Drawing.Size(210, 34);
             this.SigninButton.TabIndex = 5;
@@ -105,7 +105,7 @@
             // Forgotbtn
             // 
             this.Forgotbtn.Location = new System.Drawing.Point(190, 334);
-            this.Forgotbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Forgotbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Forgotbtn.Name = "Forgotbtn";
             this.Forgotbtn.Size = new System.Drawing.Size(103, 22);
             this.Forgotbtn.TabIndex = 6;
@@ -115,7 +115,7 @@
             // Createbtn
             // 
             this.Createbtn.Location = new System.Drawing.Point(78, 333);
-            this.Createbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Createbtn.Margin = new System.Windows.Forms.Padding(2);
             this.Createbtn.Name = "Createbtn";
             this.Createbtn.Size = new System.Drawing.Size(103, 22);
             this.Createbtn.TabIndex = 7;
@@ -141,7 +141,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(119, 99);
+            this.label2.Location = new System.Drawing.Point(119, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(174, 21);
@@ -165,7 +165,7 @@
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
