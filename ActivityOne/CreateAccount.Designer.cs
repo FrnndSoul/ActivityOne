@@ -234,7 +234,7 @@
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Registerbtn);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "CreateAccount";
+            
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
