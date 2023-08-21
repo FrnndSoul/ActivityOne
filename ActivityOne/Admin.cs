@@ -104,7 +104,7 @@ namespace ActivityOne
                     return true;
                 }
             }
-            return false
+            return false;
         }
 
         private void Backbtn_Click(object sender, EventArgs e)
@@ -140,8 +140,9 @@ namespace ActivityOne
             }
             return null;
         }
-
-
-
+        public DataGridView UserInfoDataGridView
+        {
+            get { return UserInfo; }
+        }
     }
 }

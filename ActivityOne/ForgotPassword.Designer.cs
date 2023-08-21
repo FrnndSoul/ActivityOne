@@ -31,8 +31,8 @@
             this.Text = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Username = new System.Windows.Forms.TextBox();
+            this.Email = new System.Windows.Forms.TextBox();
             this.Forgot = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,27 +75,27 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Username:";
             // 
-            // textBox1
+            // Username
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(20, 12);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(445, 27);
-            this.textBox1.TabIndex = 3;
+            this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.Username.Location = new System.Drawing.Point(20, 12);
+            this.Username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(445, 27);
+            this.Username.TabIndex = 3;
             // 
-            // textBox2
+            // Email
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Location = new System.Drawing.Point(20, 10);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(445, 27);
-            this.textBox2.TabIndex = 4;
+            this.Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.Email.Location = new System.Drawing.Point(20, 10);
+            this.Email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(445, 27);
+            this.Email.TabIndex = 4;
             // 
             // Forgot
             // 
@@ -111,6 +111,7 @@
             this.Forgot.TabIndex = 5;
             this.Forgot.Text = "Remind Me";
             this.Forgot.UseVisualStyleBackColor = true;
+            this.Forgot.Click += new System.EventHandler(this.Forgot_Click);
             // 
             // Back
             // 
@@ -140,9 +141,9 @@
             // 
             this.panel1.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.Username);
             this.panel1.Location = new System.Drawing.Point(65, 202);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(492, 49);
             this.panel1.TabIndex = 12;
@@ -151,9 +152,9 @@
             // 
             this.panel2.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.Email);
             this.panel2.Location = new System.Drawing.Point(65, 310);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(492, 49);
             this.panel2.TabIndex = 13;
@@ -190,8 +191,8 @@
         private System.Windows.Forms.Label Text;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Username;
+        private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Button Forgot;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Label label3;
