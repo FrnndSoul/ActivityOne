@@ -85,28 +85,26 @@ namespace ActivityOne
 
         public bool IsUsernameTaken(string username)
         {
-            // Assuming you have a DataGridView named UserInfo on AdminForm
             foreach (DataGridViewRow row in UserInfo.Rows)
             {
                 if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == username)
                 {
-                    return true; // Username is taken
+                    return true;
                 }
             }
-            return false; // Username is not taken
+            return false;
         }
 
         public bool IsEmailTaken(string email)
         {
-            // Assuming you have a DataGridView named UserInfo on AdminForm
             foreach (DataGridViewRow row in UserInfo.Rows)
             {
                 if (row.Cells["tblEmail"].Value != null && row.Cells["tblEmail"].Value.ToString() == email)
                 {
-                    return true; // Username is taken
+                    return true;
                 }
             }
-            return false; // Username is not taken
+            return false
         }
 
         private void Backbtn_Click(object sender, EventArgs e)
@@ -137,10 +135,10 @@ namespace ActivityOne
             {
                 if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == username)
                 {
-                    return row; // Found the user's row
+                    return row;
                 }
             }
-            return null; // User not found
+            return null;
         }
 
 

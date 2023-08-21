@@ -21,7 +21,6 @@ namespace ActivityOne
 
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
-            
 
             SigninButton.FlatAppearance.BorderSize = 0;
             Forgotbtn.FlatAppearance.BorderSize = 0;
@@ -61,10 +60,7 @@ namespace ActivityOne
 
             if (username == "admin" && password == "admin123")
             {
-                if (adminFormInstance == null || adminFormInstance.IsDisposed)
-                {
-                    adminFormInstance = new AdminForm();
-                }
+                
                 adminFormInstance.Show();
 
                 Username.Text = "";
@@ -78,7 +74,7 @@ namespace ActivityOne
                 Username.Text = "";
                 Password.Text = "";
                 return;
-            } //walang kwentang comment
+            }
 
             if (userRow != null)
             {
