@@ -78,7 +78,7 @@ namespace ActivityOne
                 Username.Text = "";
                 Password.Text = "";
                 return;
-            }
+            } //walang kwentang comment
 
             if (userRow != null)
             {
