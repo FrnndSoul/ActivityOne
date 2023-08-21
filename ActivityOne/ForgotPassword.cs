@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ActivityOne
 {
     public partial class ForgotPassword : Form
     {
-        private AdminForm AdminInstance;
+        private AdminForm adminFormInstance;
         public ForgotPassword()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,8 +45,61 @@ namespace ActivityOne
             bool foundEmail = false;
             string foundPassword = null;
 
+            AdminForm adminFormInstance = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
+            DataGridViewRow userRow = adminFormInstance.GetUserInfoRowByUsername(inputUsername);
+            
+            if (string.IsNullOrEmpty(inputUsername) || string.IsNullOrEmpty(inputEmail))
+            {
+                MessageBox.Show("Please provide both username and email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Username.Text = "";
+                Email.Text = "";
+                return;
+            }
+
+            if (userRow != null)
+            {
+                string storedEmail = userRow.Cells["tblEmail"].Value.ToString();
+                string activationStatus = userRow.Cells["tblActivation"].Value.ToString();
+                string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
+
+                if (activationStatus != "Activated")
+                {
+                    MessageBox.Show("Your account is not active.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Username.Text = "";
+                    Email.Text = "";
+                    return;
+                }
+
+                if (inputEmail == storedEmail)
+                {
+
+                    MessageBox.Show($"Your password is: {storedPassword}", "Password Retrieval");
+                    Username.Text = "";
+                    Email.Text = "";
+
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("please enter correct account info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("please enter correct account info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Username.Text = "";
+            Email.Text = "";
+        }
+
+
+
+
+
+
+/*
             // Step 1: Check if the input username exists in the DataGridView
-            foreach (DataGridViewRow row in AdminInstance.UserInfoDataGridView.Rows)
+            foreach (DataGridViewRow row in adminFormInstance.UserInfoDataGridView.Rows)
             {
                 if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == inputUsername)
                 {
@@ -78,5 +133,11 @@ namespace ActivityOne
                 // Step 4: Email and username do not match any records
                 MessageBox.Show("No matching records found.", "Error");
             }
-        }    }
+        }
+        */
+        private void Back_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+    }
 }
