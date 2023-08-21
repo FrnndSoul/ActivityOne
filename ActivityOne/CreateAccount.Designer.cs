@@ -119,6 +119,7 @@
             // 
             this.PasswordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PasswordBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.PasswordBox.Location = new System.Drawing.Point(13, 9);
             this.PasswordBox.Margin = new System.Windows.Forms.Padding(2);
             this.PasswordBox.Name = "PasswordBox";
@@ -139,6 +140,7 @@
             // 
             this.Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Email.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Email.Location = new System.Drawing.Point(13, 9);
             this.Email.Margin = new System.Windows.Forms.Padding(2);
             this.Email.Name = "Email";
@@ -159,6 +161,7 @@
             // 
             this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Username.Location = new System.Drawing.Point(13, 9);
             this.Username.Margin = new System.Windows.Forms.Padding(2);
             this.Username.Name = "Username";
@@ -179,6 +182,7 @@
             // 
             this.Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Name.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Name.Location = new System.Drawing.Point(13, 9);
             this.Name.Margin = new System.Windows.Forms.Padding(2);
             this.Name.Name = "Name";

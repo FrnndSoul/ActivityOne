@@ -15,6 +15,7 @@ namespace ActivityOne
         public ForgotPassword()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void Form1_Load(object sender, EventArgs e)
