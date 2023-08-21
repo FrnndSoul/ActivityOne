@@ -160,6 +160,7 @@
             this.SigninButton.BackColor = System.Drawing.Color.Transparent;
             this.SigninButton.BackgroundImage = global::ActivityOne.Properties.Resources.rect21;
             this.SigninButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SigninButton.FlatAppearance.BorderSize = 0;
             this.SigninButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SigninButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SigninButton.Location = new System.Drawing.Point(54, 389);

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Backbtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,27 +41,13 @@
             this.Username = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Name = new System.Windows.Forms.TextBox();
+            this.Backbtn = new System.Windows.Forms.Button();
             this.Registerbtn = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Backbtn
-            // 
-            this.Backbtn.BackColor = System.Drawing.Color.Transparent;
-            this.Backbtn.BackgroundImage = global::ActivityOne.Properties.Resources.rect3;
-            this.Backbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Backbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Backbtn.Location = new System.Drawing.Point(220, 357);
-            this.Backbtn.Margin = new System.Windows.Forms.Padding(2);
-            this.Backbtn.Name = "Backbtn";
-            this.Backbtn.Size = new System.Drawing.Size(177, 50);
-            this.Backbtn.TabIndex = 1;
-            this.Backbtn.Text = "Back";
-            this.Backbtn.UseVisualStyleBackColor = false;
-            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
             // 
             // label1
             // 
@@ -201,11 +186,30 @@
             this.Name.TabIndex = 2;
             this.Name.TextChanged += new System.EventHandler(this.Name_TextChanged);
             // 
+            // Backbtn
+            // 
+            this.Backbtn.BackColor = System.Drawing.Color.Transparent;
+            this.Backbtn.BackgroundImage = global::ActivityOne.Properties.Resources.rect6;
+            this.Backbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Backbtn.FlatAppearance.BorderSize = 0;
+            this.Backbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Backbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Backbtn.Location = new System.Drawing.Point(220, 357);
+            this.Backbtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Backbtn.Name = "Backbtn";
+            this.Backbtn.Size = new System.Drawing.Size(177, 50);
+            this.Backbtn.TabIndex = 1;
+            this.Backbtn.Text = "Back";
+            this.Backbtn.UseVisualStyleBackColor = false;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
+            // 
             // Registerbtn
             // 
             this.Registerbtn.BackColor = System.Drawing.Color.Transparent;
             this.Registerbtn.BackgroundImage = global::ActivityOne.Properties.Resources.rect3;
             this.Registerbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Registerbtn.FlatAppearance.BorderSize = 0;
+            this.Registerbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Registerbtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Registerbtn.Location = new System.Drawing.Point(28, 357);
             this.Registerbtn.Margin = new System.Windows.Forms.Padding(2);
