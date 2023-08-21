@@ -10,6 +10,8 @@ namespace ActivityOne
         public CreateAccount()
         {
             InitializeComponent();
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             PasswordBox.PasswordChar = '*';
             ShowPassBox.CheckedChanged += ShowPass_CheckedChanged;
         }
@@ -62,6 +64,11 @@ namespace ActivityOne
         }
 
         private void CreateAccount_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Name_TextChanged(object sender, EventArgs e)
         {
 
         }
