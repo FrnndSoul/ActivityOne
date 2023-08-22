@@ -93,50 +93,6 @@ namespace ActivityOne
             Username.Text = "";
             Email.Text = "";
         }
-
-
-
-
-
-
-/*
-            // Step 1: Check if the input username exists in the DataGridView
-            foreach (DataGridViewRow row in adminFormInstance.UserInfoDataGridView.Rows)
-            {
-                if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == inputUsername)
-                {
-                    foundUser = true;
-
-                    // Step 2: Check if the input email matches the user's email
-                    if (row.Cells["tblEmail"].Value.ToString() == inputEmail)
-                    {
-                        foundEmail = true;
-                        foundPassword = row.Cells["tblPassword"].Value.ToString();
-                        break;
-                    }
-                }
-            }
-
-            if (foundUser)
-            {
-                if (foundEmail)
-                {
-                    // Step 3: Display the user's password
-                    MessageBox.Show($"Your password is: {foundPassword}", "Password Retrieval");
-                }
-                else
-                {
-                    // Step 5: Email is correct, but username is incorrect
-                    MessageBox.Show("Incorrect username. Email is correct.", "Error");
-                }
-            }
-            else
-            {
-                // Step 4: Email and username do not match any records
-                MessageBox.Show("No matching records found.", "Error");
-            }
-        }
-        */
         private void Back_Click(object sender, EventArgs e)
         {
             Close();
