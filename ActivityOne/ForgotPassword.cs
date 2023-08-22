@@ -78,6 +78,7 @@ namespace ActivityOne
                         $" your password. \nYour password is: {storedPassword}\n \nPlease do not forget it again!", "Password Retrieval");
                     Username.Text = "";
                     Email.Text = "";
+                    Close();
                     return;
                 }
                 else
