@@ -50,6 +50,7 @@ namespace ActivityOne
             {
                 DataGridViewRow selectedRow = UserInfo.SelectedRows[0];
                 int statusColumnIndex = UserInfo.Columns["tblActivation"].Index;
+                int pukColumnIndex = UserInfo.Columns["tblPUK"].Index;
 
                 string currentStatus = selectedRow.Cells[statusColumnIndex].Value.ToString();
 
@@ -73,6 +74,7 @@ namespace ActivityOne
                         if (result == DialogResult.Yes)
                         {
                             selectedRow.Cells[statusColumnIndex].Value = "Activated";
+                            selectedRow.Cells[pukColumnIndex].Value = "0";
                             MessageBox.Show("Account reactivated!");
                         }
                     }
