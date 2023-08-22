@@ -57,18 +57,17 @@ namespace ActivityOne
             username = Username.Text;
             password = Password.Text;
             DataGridViewRow userRow = adminFormInstance.GetUserInfoRowByUsername(username);
+            DataGridViewRow passRow = adminFormInstance.GetUserInfoRowByUsername(password);
 
             if (username == "admin" && password == "admin123")
             {
-                
                 adminFormInstance.Show();
-
                 Username.Text = "";
                 Password.Text = "";
                 return;
             }
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please provide both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Username.Text = "";
@@ -78,10 +77,10 @@ namespace ActivityOne
 
             if (userRow != null)
             {
+
                 string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
                 string activationStatus = userRow.Cells["tblActivation"].Value.ToString();
                 int puk = Convert.ToInt32(userRow.Cells["tblPUK"].Value);
-
                 if (activationStatus != "Activated")
                 {
                     MessageBox.Show("Your account is not active.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -112,10 +111,14 @@ namespace ActivityOne
             }
             else
             {
-                MessageBox.Show("Username not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (passRow != null)
+                {
+                    MessageBox.Show("Username not found", "ERROR");
+                } else
+                {
+                    MessageBox.Show("Username and Password Incorrect", "ERROR");
+                }
             }
-            Username.Text = "";
-            Password.Text = "";
         }
 
         private void Createbtn_Click(object sender, EventArgs e)

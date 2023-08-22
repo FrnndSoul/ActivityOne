@@ -75,7 +75,7 @@ namespace ActivityOne
                 {
 
                     MessageBox.Show($"Good day {inputUsername}, \n \nIt seems that you've forgotten" +
-                        $" your password. \nYour password is: {storedPassword}\n \nPlease do not forget it again!", "Password Retrieval");
+                    $" your password. \nYour password is: {storedPassword}\n \nPlease do not forget it again!", "Password Retrieval");
                     Username.Text = "";
                     Email.Text = "";
                     Close();
