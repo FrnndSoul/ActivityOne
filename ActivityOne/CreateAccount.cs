@@ -14,6 +14,7 @@ namespace ActivityOne
             FormBorderStyle = FormBorderStyle.FixedSingle;
             PasswordBox.PasswordChar = '*';
             ShowPassBox.CheckedChanged += ShowPass_CheckedChanged;
+            AcceptButton = Registerbtn;
         }
         private void ShowPass_CheckedChanged(object sender, EventArgs e)
         {

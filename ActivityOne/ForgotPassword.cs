@@ -18,7 +18,8 @@ namespace ActivityOne
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            
+
+            AcceptButton = Forgot;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -73,10 +74,10 @@ namespace ActivityOne
                 if (inputEmail == storedEmail)
                 {
 
-                    MessageBox.Show($"Your password is: {storedPassword}", "Password Retrieval");
+                    MessageBox.Show($"Good day {inputUsername}, \n \nIt seems that you've forgotten" +
+                        $" your password. \nYour password is: {storedPassword}\n \nPlease do not forget it again!", "Password Retrieval");
                     Username.Text = "";
                     Email.Text = "";
-
                     return;
                 }
                 else

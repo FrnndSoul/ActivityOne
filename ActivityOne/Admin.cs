@@ -17,6 +17,7 @@ namespace ActivityOne
         {
             InitializeComponent();
             UserInfo.Rows.Add(Name, Username, Email, Password, Activation, PUK);
+            AcceptButton = Activate;
         }
 
         private void Form1_Load(object sender, EventArgs e)
