@@ -84,7 +84,7 @@
             this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Username.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Username.Location = new System.Drawing.Point(15, 10);
-            this.Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Username.Margin = new System.Windows.Forms.Padding(2);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(334, 22);
             this.Username.TabIndex = 3;
@@ -95,7 +95,7 @@
             this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Email.Location = new System.Drawing.Point(15, 8);
-            this.Email.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Email.Margin = new System.Windows.Forms.Padding(2);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(334, 22);
             this.Email.TabIndex = 4;
@@ -108,7 +108,7 @@
             this.Forgot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Forgot.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Forgot.Location = new System.Drawing.Point(49, 334);
-            this.Forgot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Forgot.Margin = new System.Windows.Forms.Padding(2);
             this.Forgot.Name = "Forgot";
             this.Forgot.Size = new System.Drawing.Size(140, 47);
             this.Forgot.TabIndex = 5;
@@ -122,12 +122,13 @@
             this.Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Back.FlatAppearance.BorderSize = 0;
             this.Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Back.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Back.Location = new System.Drawing.Point(277, 334);
-            this.Back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Back.Margin = new System.Windows.Forms.Padding(2);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(141, 47);
             this.Back.TabIndex = 6;
-            this.Back.Text = "BACK";
+            this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
@@ -176,7 +177,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Text);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "ForgotPassword";
             this.Load += new System.EventHandler(this.Form1_Load);
