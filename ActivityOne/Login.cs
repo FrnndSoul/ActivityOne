@@ -57,7 +57,6 @@ namespace ActivityOne
             username = Username.Text;
             password = Password.Text;
             DataGridViewRow userRow = adminFormInstance.GetUserInfoRowByUsername(username);
-            DataGridViewRow passRow = adminFormInstance.GetUserInfoRowByUsername(password);
 
             if (username == "admin" && password == "admin123")
             {
@@ -111,12 +110,15 @@ namespace ActivityOne
             }
             else
             {
-                if (passRow != null)
+                DataGridViewRow passRow = adminFormInstance.GetUserInfoRowByPassword(password);
+
+                if (passRow == null)
                 {
-                    MessageBox.Show("Username not found", "ERROR");
-                } else
+                    MessageBox.Show("Both username and password incorrect", "ERROR");
+                }
+                else if (passRow.Cells["tblUsername"].Value.ToString() != username)
                 {
-                    MessageBox.Show("Username and Password Incorrect", "ERROR");
+                    MessageBox.Show("Password correct, please provide correct username", "ERROR");
                 }
             }
         }

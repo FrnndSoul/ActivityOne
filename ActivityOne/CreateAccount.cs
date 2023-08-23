@@ -34,6 +34,12 @@ namespace ActivityOne
                 return;
             }
 
+            if (!IsPasswordValid(password))
+            {
+                MessageBox.Show("Password must have at least 8 characters, \nwith uppercase and lowercase letters, \nand at least one special character.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             AdminForm adminForm = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
 
             if (adminForm != null)
@@ -48,7 +54,6 @@ namespace ActivityOne
                     MessageBox.Show("Email already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 adminForm.AddUserToDataGridView(name, username, email, password);
                 MessageBox.Show("Registration is awaiting approval, hang tight!");
                 this.Close();
@@ -69,9 +74,34 @@ namespace ActivityOne
 
         }
 
-        private void Name_TextChanged(object sender, EventArgs e)
+        private void Name_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
+            {
+                e.Handled = true; // Suppress the key press
+            }
+        }
 
+        private bool IsPasswordValid(string password)
+        {
+            if (password.Length < 8)
+                return false;
+
+            bool hasUppercase = false;
+            bool hasLowercase = false;
+            bool hasSpecialCharacter = false;
+
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c))
+                    hasUppercase = true;
+                else if (char.IsLower(c))
+                    hasLowercase = true;
+                else if (char.IsSymbol(c) || char.IsPunctuation(c))
+                    hasSpecialCharacter = true;
+            }
+
+            return hasUppercase && hasLowercase && hasSpecialCharacter;
         }
     }
 }

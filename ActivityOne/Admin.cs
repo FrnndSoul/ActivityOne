@@ -18,6 +18,7 @@ namespace ActivityOne
             InitializeComponent();
             UserInfo.Rows.Add(Name, Username, Email, Password, Activation, PUK);
             AcceptButton = Activate;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,9 +37,9 @@ namespace ActivityOne
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
-        
+
         public void AddUserToDataGridView(string name, string username, string email, string password)
         {
             UserInfo.Rows.Add(name, username, email, password, "Locked", "0");
@@ -68,7 +69,8 @@ namespace ActivityOne
                             selectedRow.Cells[statusColumnIndex].Value = "Activated";
                             MessageBox.Show("Account activated!");
                         }
-                    } else
+                    }
+                    else
                     {
                         DialogResult result = MessageBox.Show("Are you sure you want to reactivate this account?", "Confirm Reactivation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
@@ -143,6 +145,19 @@ namespace ActivityOne
             }
             return null;
         }
+
+        public DataGridViewRow GetUserInfoRowByPassword(string password)
+        {
+            foreach (DataGridViewRow row in UserInfo.Rows)
+            {
+                if (row.Cells["tblPassword"].Value != null && row.Cells["tblPassword"].Value.ToString() == password)
+                {
+                    return row;
+                }
+            }
+            return null;
+        }
+
         public DataGridView UserInfoDataGridView
         {
             get { return UserInfo; }
