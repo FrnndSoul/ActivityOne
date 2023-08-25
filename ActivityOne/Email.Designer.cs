@@ -78,10 +78,11 @@
             // passwordBox
             // 
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordBox.Location = new System.Drawing.Point(15, 105);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.ReadOnly = true;
-            this.passwordBox.Size = new System.Drawing.Size(566, 15);
+            this.passwordBox.Size = new System.Drawing.Size(566, 23);
             this.passwordBox.TabIndex = 5;
             // 
             // Title
