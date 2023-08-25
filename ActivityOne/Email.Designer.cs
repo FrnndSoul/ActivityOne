@@ -39,7 +39,7 @@
             // 
             // Back
             // 
-            this.Back.Location = new System.Drawing.Point(447, 236);
+            this.Back.Location = new System.Drawing.Point(494, 244);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(134, 40);
             this.Back.TabIndex = 0;
@@ -88,17 +88,17 @@
             // Title
             // 
             this.Title.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Title.Location = new System.Drawing.Point(405, 12);
+            this.Title.Location = new System.Drawing.Point(438, 12);
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;
-            this.Title.Size = new System.Drawing.Size(176, 15);
+            this.Title.Size = new System.Drawing.Size(190, 15);
             this.Title.TabIndex = 6;
             // 
             // Email
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 296);
+            this.ClientSize = new System.Drawing.Size(640, 296);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.label2);
