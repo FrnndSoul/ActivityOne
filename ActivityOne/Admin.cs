@@ -114,7 +114,11 @@ namespace ActivityOne
 
         private void Backbtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            DialogResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+            }
         }
         private void Activatebtn_Click(object sender, EventArgs e)
         {

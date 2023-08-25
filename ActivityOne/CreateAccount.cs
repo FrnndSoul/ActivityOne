@@ -23,7 +23,12 @@ namespace ActivityOne
 
         private void Registerbtn_Click(object sender, EventArgs e)
         {
-            string name = Name.Text;
+            DialogResult result = MessageBox.Show("Do you want to register with these information?\nchanges cannot be undone!", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+                string name = Name.Text;
             string username = Username.Text;
             string email = Email.Text;
             string password = PasswordBox.Text;
@@ -54,14 +59,19 @@ namespace ActivityOne
                     MessageBox.Show("Email already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                adminForm.AddUserToDataGridView(name, username, email, password);
-                MessageBox.Show("Registration is awaiting approval, hang tight!");
-                this.Close();
+                    adminForm.AddUserToDataGridView(name, username, email, password);
+                    MessageBox.Show("Registration is awaiting approval, hang tight!");
+                    this.Close();
+                    Close();
             }
         }
         private void Backbtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
         private bool IsValidEmail(string email)
         {

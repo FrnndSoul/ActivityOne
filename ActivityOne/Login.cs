@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
 namespace ActivityOne
 {
     public partial class LoginForm : Form
@@ -60,6 +62,7 @@ namespace ActivityOne
 
             if (username == "admin" && password == "admin123")
             {
+                MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
                 adminFormInstance.Show();
                 Username.Text = "";
                 Password.Text = "";
@@ -79,6 +82,9 @@ namespace ActivityOne
 
                 string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
                 string activationStatus = userRow.Cells["tblActivation"].Value.ToString();
+                string tblEmail = userRow.Cells["tblEmail"].Value.ToString();
+                string tblUsername = userRow.Cells["tblUsername"].Value.ToString();
+
                 int puk = Convert.ToInt32(userRow.Cells["tblPUK"].Value);
                 if (activationStatus != "Activated")
                 {
@@ -90,11 +96,14 @@ namespace ActivityOne
 
                 if (password == storedPassword)
                 {
-                    MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string storedEmail = userRow.Cells["tblEmail"].Value.ToString();
+                    string storedUsername = userRow.Cells["tblUsername"].Value.ToString();
+                    UserForm userForm = new UserForm();
+                    userForm.SetProfile(storedEmail, storedUsername);
+                    MessageBox.Show("Login success!", $"WELCOME {storedUsername}!", MessageBoxButtons.OK);
                     Username.Text = "";
                     Password.Text = "";
-                    userRow.Cells["tblPUK"].Value = "0";
-                    return;
+                    userForm.ShowDialog();
                 }
                 else
                 {
@@ -129,8 +138,12 @@ namespace ActivityOne
 
             if (createAccount == null || createAccount.IsDisposed)
             {
-                createAccount = new CreateAccount();
-                createAccount.ShowDialog();
+                DialogResult result = MessageBox.Show("Do you want to sign up?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    createAccount = new CreateAccount();
+                    createAccount.ShowDialog();
+                }
             }
             else
             {
@@ -140,8 +153,12 @@ namespace ActivityOne
 
         private void Forgotbtn_Click(object sender, EventArgs e)
         {
-            ForgotPassword forgotPassword = new ForgotPassword();
-            forgotPassword.ShowDialog();
+            DialogResult result = MessageBox.Show("Have already registered with us?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                ForgotPassword forgotPassword = new ForgotPassword();
+                forgotPassword.ShowDialog();
+            }
         }
     }
 }

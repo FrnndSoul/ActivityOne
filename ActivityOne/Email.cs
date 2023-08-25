@@ -25,8 +25,7 @@ namespace ActivityOne
             userUsername = username;
             usernameBox.Text = $" {username},";
             passwordBox.Text = $" {password}";
-            Title.Text = DateTime.Today.ToString("Message received on: MMMM dd , yyyy");
-
+            Title.Text = DateTime.Today.ToString("MMMM dd , yyyy");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,10 +35,19 @@ namespace ActivityOne
 
         private void Back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("have you taken note of your password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
 
         private void Display_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Title_TextChanged(object sender, EventArgs e)
         {
 
         }

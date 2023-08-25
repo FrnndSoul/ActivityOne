@@ -41,9 +41,6 @@ namespace ActivityOne
             string inputUsername = Username.Text;
             string inputEmail = Email.Text;
 
-            bool foundUser = false;
-            bool foundEmail = false;
-            string foundPassword = null;
 
             AdminForm adminFormInstance = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
             DataGridViewRow userRow = adminFormInstance.GetUserInfoRowByUsername(inputUsername);
@@ -101,7 +98,11 @@ namespace ActivityOne
         }
         private void Back_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

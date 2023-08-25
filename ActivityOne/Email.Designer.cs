@@ -93,6 +93,7 @@
             this.Title.ReadOnly = true;
             this.Title.Size = new System.Drawing.Size(190, 15);
             this.Title.TabIndex = 6;
+            this.Title.TextChanged += new System.EventHandler(this.Title_TextChanged);
             // 
             // Email
             // 
