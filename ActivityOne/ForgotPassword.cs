@@ -18,7 +18,6 @@ namespace ActivityOne
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
-
             AcceptButton = Forgot;
         }
 
@@ -61,7 +60,6 @@ namespace ActivityOne
             {
                 string storedEmail = userRow.Cells["tblEmail"].Value.ToString();
                 string activationStatus = userRow.Cells["tblActivation"].Value.ToString();
-                string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
 
                 if (activationStatus != "Activated")
                 {
@@ -73,9 +71,15 @@ namespace ActivityOne
 
                 if (inputEmail == storedEmail)
                 {
+                    string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
+                    MessageBox.Show("Email was sent to your registered email address. \n" +
+                        "You can now close this window", "EMAIL SENT",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    MessageBox.Show($"Good day {inputUsername}, \n \nIt seems that you've forgotten" +
-                    $" your password. \nYour password is: {storedPassword}\n \nPlease do not forget it again!", "Password Retrieval");
+                    Email email = new Email();
+                    email.SetPassword(storedPassword); // Set the password using the method
+                    email.ShowDialog();
+
                     Username.Text = "";
                     Email.Text = "";
                     Close();
