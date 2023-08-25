@@ -25,7 +25,7 @@ namespace ActivityOne
             userUsername = username;
             usernameBox.Text = $" {username},";
             passwordBox.Text = $" {password}";
-            Title.Text = DateTime.Today.ToString("MMMM-dd , yyyy HH:mm:ss");
+            Title.Text = DateTime.Today.ToString("Message received on: MMMM dd , yyyy");
 
         }
 
