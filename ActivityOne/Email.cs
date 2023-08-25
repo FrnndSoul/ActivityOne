@@ -13,16 +13,20 @@ namespace ActivityOne
     public partial class Email : Form
     {
         private string userPassword;
+        private string userUsername; 
         public Email()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-        public void SetPassword(string password)
+        public void SetCredentials(string username, string password)
         {
             userPassword = password;
-            Display.Text = userPassword;
-            Display.ReadOnly = true;
+            userUsername = username;
+            usernameBox.Text = $" {username},";
+            passwordBox.Text = $" {password}";
+            Title.Text = DateTime.Today.ToString("MMMM-dd , yyyy HH:mm:ss");
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

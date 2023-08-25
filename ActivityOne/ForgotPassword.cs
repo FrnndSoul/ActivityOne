@@ -72,12 +72,14 @@ namespace ActivityOne
                 if (inputEmail == storedEmail)
                 {
                     string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
+                    string storedUsername = userRow.Cells["tblUsername"].Value.ToString();
+
                     MessageBox.Show("Email was sent to your registered email address. \n" +
                         "You can now close this window", "EMAIL SENT",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Email email = new Email();
-                    email.SetPassword(storedPassword); // Set the password using the method
+                    email.SetCredentials(storedUsername, storedPassword); // Set both username and password
                     email.ShowDialog();
 
                     Username.Text = "";

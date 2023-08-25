@@ -117,4 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>We received a request that you've forgotten your password. No worries! Here is your password:
+
+
+
+Please remember to keep your password secure and avoid sharing it with anyone.
+
+If you didn't request a password reset, please contact our support team immediately.
+
+Best regards,
+Emil the Admin</value>
+  </data>
 </root>
