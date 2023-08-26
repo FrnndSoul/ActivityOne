@@ -25,7 +25,7 @@ namespace ActivityOne
             userUsername = username;
             usernameBox.Text = $" {username},";
             passwordBox.Text = $" {password}";
-            Title.Text = DateTime.Today.ToString("MMMM dd , yyyy");
+            Title.Text = DateTime.Now.ToString("MMMM dd ,yyyy HH:mm:ss");
         }
 
         private void Form1_Load(object sender, EventArgs e)
