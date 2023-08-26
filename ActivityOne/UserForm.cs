@@ -19,10 +19,10 @@ namespace ActivityOne
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-        public void SetProfile(string username, string email)
+        public void SetProfile(string email, string username)
         {
-            tblEmail = username;
-            tblUsername = email;
+            tblEmail = email;
+            tblUsername = username;
             emailBox.Text = tblEmail;
             usernameBox.Text = tblUsername;
         }
