@@ -39,9 +39,10 @@
             // 
             // Back
             // 
-            this.Back.Location = new System.Drawing.Point(494, 244);
+            this.Back.Location = new System.Drawing.Point(522, 298);
+            this.Back.Margin = new System.Windows.Forms.Padding(2);
             this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(134, 40);
+            this.Back.Size = new System.Drawing.Size(100, 32);
             this.Back.TabIndex = 0;
             this.Back.Text = "Close";
             this.Back.UseVisualStyleBackColor = true;
@@ -49,63 +50,82 @@
             // 
             // usernameBox
             // 
+            this.usernameBox.BackColor = System.Drawing.Color.White;
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameBox.Location = new System.Drawing.Point(93, 44);
+            this.usernameBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameBox.Location = new System.Drawing.Point(142, 122);
+            this.usernameBox.Margin = new System.Windows.Forms.Padding(2);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.ReadOnly = true;
-            this.usernameBox.Size = new System.Drawing.Size(488, 15);
+            this.usernameBox.Size = new System.Drawing.Size(366, 16);
             this.usernameBox.TabIndex = 2;
             this.usernameBox.TextChanged += new System.EventHandler(this.Display_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 44);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(70, 123);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.Size = new System.Drawing.Size(68, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Hello there,";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 73);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(70, 146);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(569, 160);
+            this.label2.Size = new System.Drawing.Size(505, 150);
             this.label2.TabIndex = 4;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // passwordBox
             // 
+            this.passwordBox.BackColor = System.Drawing.Color.White;
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordBox.Location = new System.Drawing.Point(15, 105);
+            this.passwordBox.Location = new System.Drawing.Point(73, 178);
+            this.passwordBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.ReadOnly = true;
-            this.passwordBox.Size = new System.Drawing.Size(566, 23);
+            this.passwordBox.Size = new System.Drawing.Size(424, 19);
             this.passwordBox.TabIndex = 5;
             // 
             // Title
             // 
+            this.Title.BackColor = System.Drawing.Color.White;
             this.Title.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Title.Location = new System.Drawing.Point(438, 12);
+            this.Title.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.Title.Location = new System.Drawing.Point(380, 79);
+            this.Title.Margin = new System.Windows.Forms.Padding(2);
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;
-            this.Title.Size = new System.Drawing.Size(190, 15);
+            this.Title.Size = new System.Drawing.Size(142, 16);
             this.Title.TabIndex = 6;
             this.Title.TextChanged += new System.EventHandler(this.Title_TextChanged);
             // 
             // Email
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 296);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::ActivityOne.Properties.Resources.fin1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(645, 342);
+            this.Controls.Add(this.Back);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usernameBox);
-            this.Controls.Add(this.Back);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Email";
             this.Text = "Email Notification";
             this.Load += new System.EventHandler(this.Form1_Load);

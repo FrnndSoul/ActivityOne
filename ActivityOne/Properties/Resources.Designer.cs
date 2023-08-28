@@ -73,6 +73,16 @@ namespace ActivityOne.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fin1 {
+            get {
+                object obj = ResourceManager.GetObject("fin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rect1 {
             get {
                 object obj = ResourceManager.GetObject("rect1", resourceCulture);
@@ -126,6 +136,16 @@ namespace ActivityOne.Properties {
         internal static System.Drawing.Bitmap rect611 {
             get {
                 object obj = ResourceManager.GetObject("rect611", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap temp {
+            get {
+                object obj = ResourceManager.GetObject("temp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
