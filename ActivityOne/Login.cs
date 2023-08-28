@@ -123,7 +123,7 @@ namespace ActivityOne
 
                 if (passRow == null)
                 {
-                    MessageBox.Show("Both username and password incorrect", "ERROR");
+                    MessageBox.Show("Account not found!", "ERROR");
                     Username.Text = "";
                     Password.Text = "";
                 }
