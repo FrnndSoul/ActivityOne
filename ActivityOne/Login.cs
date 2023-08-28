@@ -124,10 +124,14 @@ namespace ActivityOne
                 if (passRow == null)
                 {
                     MessageBox.Show("Both username and password incorrect", "ERROR");
+                    Username.Text = "";
+                    Password.Text = "";
                 }
                 else if (passRow.Cells["tblUsername"].Value.ToString() != username)
                 {
                     MessageBox.Show("Password correct, please provide correct username", "ERROR");
+                    Username.Text = "";
+                    Password.Text = "";
                 }
             }
         }
