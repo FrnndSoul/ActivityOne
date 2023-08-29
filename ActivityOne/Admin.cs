@@ -20,7 +20,6 @@ namespace ActivityOne
             AcceptButton = Activate;
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -34,17 +33,14 @@ namespace ActivityOne
             }
             base.OnFormClosing(e);
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         public void AddUserToDataGridView(string name, string username, string email, string password)
         {
             UserInfo.Rows.Add(name, username, email, password, "Locked", "0");
         }
-
         private void Activate_Click(object sender, EventArgs e)
         {
             if (UserInfo.SelectedRows.Count != 0)
@@ -87,7 +83,6 @@ namespace ActivityOne
                 MessageBox.Show("No data selected!");
             }
         }
-
         public bool IsUsernameTaken(string username)
         {
             foreach (DataGridViewRow row in UserInfo.Rows)
@@ -99,7 +94,6 @@ namespace ActivityOne
             }
             return false;
         }
-
         public bool IsEmailTaken(string email)
         {
             foreach (DataGridViewRow row in UserInfo.Rows)
@@ -111,7 +105,6 @@ namespace ActivityOne
             }
             return false;
         }
-
         private void Backbtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -120,24 +113,10 @@ namespace ActivityOne
                 this.Hide();
             }
         }
-        private void Activatebtn_Click(object sender, EventArgs e)
-        {
-            if (UserInfo.SelectedRows.Count != 0)
-            {
-                DataGridViewRow selectedRow = UserInfo.SelectedRows[0];
-                selectedRow.Cells["tblActivation"].Value = "Activated";
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to activate.");
-            }
-        }
-
         public void DeleteFirstRow()
         {
             UserInfo.Rows.RemoveAt(0);
         }
-
         public DataGridViewRow GetUserInfoRowByUsername(string username)
         {
             foreach (DataGridViewRow row in UserInfo.Rows)
@@ -149,7 +128,6 @@ namespace ActivityOne
             }
             return null;
         }
-
         public DataGridViewRow GetUserInfoRowByPassword(string password)
         {
             foreach (DataGridViewRow row in UserInfo.Rows)
@@ -160,11 +138,6 @@ namespace ActivityOne
                 }
             }
             return null;
-        }
-
-        public DataGridView UserInfoDataGridView
-        {
-            get { return UserInfo; }
         }
     }
 }

@@ -20,7 +20,6 @@ namespace ActivityOne
         {
             PasswordBox.PasswordChar = ShowPassBox.Checked ? '\0' : '*';
         }
-
         private void Registerbtn_Click(object sender, EventArgs e)
         {
             AdminForm adminForm = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
@@ -86,12 +85,10 @@ namespace ActivityOne
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return System.Text.RegularExpressions.Regex.IsMatch(email, pattern);
         }
-
         private void CreateAccount_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Name_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
@@ -99,7 +96,6 @@ namespace ActivityOne
                 e.Handled = true; // Suppress the key press
             }
         }
-
         private bool IsPasswordValid(string password)
         {
             if (password.Length < 8)

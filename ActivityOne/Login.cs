@@ -13,8 +13,7 @@ namespace ActivityOne
 {
     public partial class LoginForm : Form
     {
-        private AdminForm adminFormInstance;
-        
+        private AdminForm adminFormInstance;        
         public LoginForm()
         {
             InitializeComponent();
@@ -70,7 +69,6 @@ namespace ActivityOne
                 ShowErrorMessage("Please provide both username and password.");
                 return;
             }
-
             if (userRow != null)
             {
                 string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
@@ -105,14 +103,12 @@ namespace ActivityOne
                 }
             }
         }
-
         private void ShowAdminForm()
         {
             MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
             adminFormInstance.Show();
             ClearFields();
         }
-
         private void ShowUserForm(string email, string username)
         {
             UserForm userForm = new UserForm();
@@ -121,7 +117,6 @@ namespace ActivityOne
             ClearFields();
             userForm.ShowDialog();
         }
-
         private void HandleIncorrectPassword(DataGridViewRow userRow)
         {
             int puk = Convert.ToInt32(userRow.Cells["tblPUK"].Value);
@@ -135,20 +130,16 @@ namespace ActivityOne
 
             ShowErrorMessage($"Incorrect password. You have {3 - puk} attempt(s) remaining.");
         }
-
         private void ShowErrorMessage(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             ClearFields();
         }
-
         private void ClearFields()
         {
             Username.Text = "";
             Password.Text = "";
         }
-
-
         private void Createbtn_Click(object sender, EventArgs e)
         {
             CreateAccount createAccount = Application.OpenForms.OfType<CreateAccount>().FirstOrDefault();
@@ -167,7 +158,6 @@ namespace ActivityOne
                 createAccount.BringToFront();
             }
         }
-
         private void Forgotbtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Have already registered with us?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

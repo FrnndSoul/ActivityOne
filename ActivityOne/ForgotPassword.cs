@@ -20,22 +20,18 @@ namespace ActivityOne
             FormBorderStyle = FormBorderStyle.FixedSingle;
             AcceptButton = Forgot;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Text_Click(object sender, EventArgs e)
         {
 
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void Forgot_Click(object sender, EventArgs e)
         {
             string inputUsername = Username.Text;
@@ -76,7 +72,7 @@ namespace ActivityOne
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Email email = new Email();
-                    email.SetCredentials(storedUsername, storedPassword); // Set both username and password
+                    email.SetCredentials(storedUsername, storedPassword);
                     email.ShowDialog();
 
                     Username.Text = "";

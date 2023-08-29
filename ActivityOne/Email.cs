@@ -27,12 +27,10 @@ namespace ActivityOne
             passwordBox.Text = $" {password}";
             Title.Text = DateTime.Now.ToString("MMMM dd ,yyyy HH:mm:ss");
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Back_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("have you taken note of your password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -41,12 +39,10 @@ namespace ActivityOne
                 Close();
             }
         }
-
         private void Display_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void Title_TextChanged(object sender, EventArgs e)
         {
 
