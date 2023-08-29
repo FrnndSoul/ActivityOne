@@ -23,19 +23,24 @@ namespace ActivityOne
 
         private void Registerbtn_Click(object sender, EventArgs e)
         {
+            AdminForm adminForm = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
+
             string name = Name.Text;
             string username = Username.Text;
             string email = Email.Text;
             string password = PasswordBox.Text;
+
             string maskedPassword = password.Length >= 4
                 ? password.Substring(0, 2) + new string('*', password.Length - 4) + password.Substring(password.Length - 2)
     :           new string('*', password.Length);
+
             DialogResult result = MessageBox.Show("Do you want to register with these information?!" +
                 $"\n\nName: {name}" +
                 $"\nUsername: {username}" +
                 $"\nEmail: {email}" +
                 $"\nPassword: {maskedPassword}" +
                 $"\n\nchanges cannot be undone", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (result == DialogResult.No)
             {
                 return;
@@ -53,25 +58,20 @@ namespace ActivityOne
                 return;
             }
 
-            AdminForm adminForm = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
-
-            if (adminForm != null)
+            if (adminForm.IsUsernameTaken(username))
             {
-                if (adminForm.IsUsernameTaken(username))
-                {
-                    MessageBox.Show("Username already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (adminForm.IsEmailTaken(email))
-                {
-                    MessageBox.Show("Email already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                    adminForm.AddUserToDataGridView(name, username, email, password);
-                    MessageBox.Show("Registration is awaiting approval, hang tight!");
-                    this.Close();
-                    Close();
+                MessageBox.Show("Username already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            if (adminForm.IsEmailTaken(email))
+            {
+                MessageBox.Show("Email already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+                adminForm.AddUserToDataGridView(name, username, email, password);
+                MessageBox.Show("Registration is awaiting approval, hang tight!");
+                this.Close();
+                Close();
         }
         private void Backbtn_Click(object sender, EventArgs e)
         {
