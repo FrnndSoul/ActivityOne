@@ -30,11 +30,12 @@ namespace ActivityOne
             string maskedPassword = password.Length >= 4
                 ? password.Substring(0, 2) + new string('*', password.Length - 4) + password.Substring(password.Length - 2)
     :           new string('*', password.Length);
-            DialogResult result = MessageBox.Show("Do you want to register with these information?\nchanges cannot be undone!" +
-                $"\nName: {name}" +
+            DialogResult result = MessageBox.Show("Do you want to register with these information?!" +
+                $"\n\nName: {name}" +
                 $"\nUsername: {username}" +
                 $"\nEmail: {email}" +
-                $"\nPassword: {maskedPassword}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                $"\nPassword: {maskedPassword}" +
+                $"\n\nchanges cannot be undone", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
