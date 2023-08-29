@@ -55,66 +55,40 @@ namespace ActivityOne
         }
         private void SigninButton_Click(object sender, EventArgs e)
         {
-            String username, password;
-            username = Username.Text;
-            password = Password.Text;
+            string username = Username.Text;
+            string password = Password.Text;
             DataGridViewRow userRow = adminFormInstance.GetUserInfoRowByUsername(username);
 
             if (username == "admin" && password == "admin123")
             {
-                MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
-                adminFormInstance.Show();
-                Username.Text = "";
-                Password.Text = "";
+                ShowAdminForm();
                 return;
             }
 
-            if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Please provide both username and password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Username.Text = "";
-                Password.Text = "";
+                ShowErrorMessage("Please provide both username and password.");
                 return;
             }
 
             if (userRow != null)
             {
-
                 string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
                 string activationStatus = userRow.Cells["tblActivation"].Value.ToString();
-                string tblEmail = userRow.Cells["tblEmail"].Value.ToString();
-                string tblUsername = userRow.Cells["tblUsername"].Value.ToString();
 
-                int puk = Convert.ToInt32(userRow.Cells["tblPUK"].Value);
                 if (activationStatus != "Activated")
                 {
-                    MessageBox.Show("Your account is not active.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Username.Text = "";
-                    Password.Text = "";
+                    ShowErrorMessage("Your account is not active.");
                     return;
                 }
 
                 if (password == storedPassword)
                 {
-                    string storedEmail = userRow.Cells["tblEmail"].Value.ToString();
-                    string storedUsername = userRow.Cells["tblUsername"].Value.ToString();
-                    UserForm userForm = new UserForm();
-                    userForm.SetProfile(storedEmail, storedUsername);
-                    MessageBox.Show("Login success!", $"WELCOME {storedUsername}!", MessageBoxButtons.OK);
-                    Username.Text = "";
-                    Password.Text = "";
-                    userForm.ShowDialog();
+                    ShowUserForm(userRow.Cells["tblEmail"].Value.ToString(), userRow.Cells["tblUsername"].Value.ToString());
                 }
                 else
                 {
-                    puk++;
-                    userRow.Cells["tblPUK"].Value = puk;
-                    MessageBox.Show($"Incorrect password. You have {3 - puk} attempt(s) remaining.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    if (puk >= 3)
-                    {
-                        userRow.Cells["tblActivation"].Value = "Deactivated";
-                    }
+                    HandleIncorrectPassword(userRow);
                 }
             }
             else
@@ -123,18 +97,57 @@ namespace ActivityOne
 
                 if (passRow == null)
                 {
-                    MessageBox.Show("Account not found!", "ERROR");
-                    Username.Text = "";
-                    Password.Text = "";
+                    ShowErrorMessage("Account not found!");
                 }
                 else if (passRow.Cells["tblUsername"].Value.ToString() != username)
                 {
-                    MessageBox.Show("Password correct, please provide correct username", "ERROR");
-                    Username.Text = "";
-                    Password.Text = "";
+                    ShowErrorMessage("Password correct, please provide correct username");
                 }
             }
         }
+
+        private void ShowAdminForm()
+        {
+            MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
+            adminFormInstance.Show();
+            ClearFields();
+        }
+
+        private void ShowUserForm(string email, string username)
+        {
+            UserForm userForm = new UserForm();
+            userForm.SetProfile(email, username);
+            MessageBox.Show("Login success!", $"WELCOME {username}!", MessageBoxButtons.OK);
+            ClearFields();
+            userForm.ShowDialog();
+        }
+
+        private void HandleIncorrectPassword(DataGridViewRow userRow)
+        {
+            int puk = Convert.ToInt32(userRow.Cells["tblPUK"].Value);
+            puk++;
+            userRow.Cells["tblPUK"].Value = puk;
+
+            if (puk >= 3)
+            {
+                userRow.Cells["tblActivation"].Value = "Deactivated";
+            }
+
+            ShowErrorMessage($"Incorrect password. You have {3 - puk} attempt(s) remaining.");
+        }
+
+        private void ShowErrorMessage(string message)
+        {
+            MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ClearFields();
+        }
+
+        private void ClearFields()
+        {
+            Username.Text = "";
+            Password.Text = "";
+        }
+
 
         private void Createbtn_Click(object sender, EventArgs e)
         {
