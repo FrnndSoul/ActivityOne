@@ -38,7 +38,7 @@ namespace ActivityOne
                 $"\nUsername: {username}" +
                 $"\nEmail: {email}" +
                 $"\nPassword: {maskedPassword}" +
-                $"\n\nchanges cannot be undone", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                $"\n\nChanges on the account cannot be done!", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No)
             {
