@@ -23,15 +23,22 @@ namespace ActivityOne
 
         private void Registerbtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to register with these information?\nchanges cannot be undone!", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string name = Name.Text;
+            string username = Username.Text;
+            string email = Email.Text;
+            string password = PasswordBox.Text;
+            string maskedPassword = password.Length >= 4
+                ? password.Substring(0, 2) + new string('*', password.Length - 4) + password.Substring(password.Length - 2)
+    :           new string('*', password.Length);
+            DialogResult result = MessageBox.Show("Do you want to register with these information?\nchanges cannot be undone!" +
+                $"\nName: {name}" +
+                $"\nUsername: {username}" +
+                $"\nEmail: {email}" +
+                $"\nPassword: {maskedPassword}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
                 return;
             }
-                string name = Name.Text;
-            string username = Username.Text;
-            string email = Email.Text;
-            string password = PasswordBox.Text;
 
             if (!IsValidEmail(email))
             {
