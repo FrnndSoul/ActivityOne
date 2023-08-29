@@ -52,6 +52,7 @@
             // 
             this.usernameBox.BackColor = System.Drawing.Color.White;
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usernameBox.Enabled = false;
             this.usernameBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameBox.Location = new System.Drawing.Point(179, 151);
             this.usernameBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -97,6 +98,7 @@
             // 
             this.Title.BackColor = System.Drawing.Color.White;
             this.Title.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Title.Enabled = false;
             this.Title.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.Title.Location = new System.Drawing.Point(507, 97);
