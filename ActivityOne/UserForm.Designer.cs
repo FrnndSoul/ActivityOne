@@ -60,6 +60,7 @@
             // usernameBox
             // 
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usernameBox.Enabled = false;
             this.usernameBox.Font = new System.Drawing.Font("Consolas", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameBox.Location = new System.Drawing.Point(394, 77);
             this.usernameBox.Multiline = true;
@@ -73,7 +74,9 @@
             // emailBox
             // 
             this.emailBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailBox.Enabled = false;
             this.emailBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailBox.HideSelection = false;
             this.emailBox.Location = new System.Drawing.Point(394, 182);
             this.emailBox.Multiline = true;
             this.emailBox.Name = "emailBox";
