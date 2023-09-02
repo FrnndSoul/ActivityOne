@@ -141,7 +141,7 @@
             this.Controls.Add(this.UserInfo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
-            this.Text = "Admin";
+            this.Text = "UserHub Admin";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).EndInit();
             this.ResumeLayout(false);
