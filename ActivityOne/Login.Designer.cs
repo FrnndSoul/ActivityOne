@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.UserLabel = new System.Windows.Forms.Label();
             this.PassLabel = new System.Windows.Forms.Label();
             this.Showpass = new System.Windows.Forms.CheckBox();
@@ -135,7 +136,7 @@
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.Password);
             this.panel2.Location = new System.Drawing.Point(72, 342);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(492, 49);
             this.panel2.TabIndex = 11;
@@ -175,7 +176,7 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.Username);
             this.panel1.Location = new System.Drawing.Point(72, 251);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(492, 49);
             this.panel1.TabIndex = 10;
@@ -219,6 +220,7 @@
             this.Controls.Add(this.PassLabel);
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "LoginForm";

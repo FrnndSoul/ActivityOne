@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.UserInfo = new System.Windows.Forms.DataGridView();
             this.tblName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,6 +139,7 @@
             this.Controls.Add(this.Activate);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.UserInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Form1_Load);
