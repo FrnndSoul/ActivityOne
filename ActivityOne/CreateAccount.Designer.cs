@@ -243,6 +243,7 @@
             this.Controls.Add(this.Registerbtn);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
+            this.Text = "Create Account";
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
