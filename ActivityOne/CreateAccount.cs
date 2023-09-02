@@ -29,6 +29,12 @@ namespace ActivityOne
             string email = Email.Text;
             string password = PasswordBox.Text;
 
+            if (username == "admin" || username == "Admin")
+            {
+                MessageBox.Show("Cannot register with admin as a username","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                return;
+            }
+
             string maskedPassword = password.Length >= 4
                 ? password.Substring(0, 2) + new string('*', password.Length - 4) + password.Substring(password.Length - 2)
     :           new string('*', password.Length);
