@@ -82,7 +82,7 @@ namespace ActivityOne
 
                 if (password == storedPassword)
                 {
-                    ShowUserForm(userRow.Cells["tblEmail"].Value.ToString(), userRow.Cells["tblUsername"].Value.ToString());
+                    ShowUserForm(userRow.Cells["tblEmail"].Value.ToString(), userRow.Cells["tblUsername"].Value.ToString(), userRow.Cells["tblName"].Value.ToString());
                 }
                 else
                 {
@@ -99,7 +99,7 @@ namespace ActivityOne
                 }
                 else if (passRow.Cells["tblUsername"].Value.ToString() != username)
                 {
-                    ShowErrorMessage("Password correct, please provide correct username");
+                    ShowErrorMessage("Please provide correct username");
                 }
             }
         }
@@ -109,10 +109,10 @@ namespace ActivityOne
             adminFormInstance.Show();
             ClearFields();
         }
-        private void ShowUserForm(string email, string username)
+        private void ShowUserForm(string email, string username, string name)
         {
             UserForm userForm = new UserForm();
-            userForm.SetProfile(email, username);
+            userForm.SetProfile(email, username, name);
             MessageBox.Show("Login success!", $"WELCOME {username}!", MessageBoxButtons.OK);
             ClearFields();
             userForm.ShowDialog();

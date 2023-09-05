@@ -14,17 +14,20 @@ namespace ActivityOne
     {
         private string tblUsername;
         private string tblEmail;
+        private string tblName;
         public UserForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-        public void SetProfile(string email, string username)
+        public void SetProfile(string email, string username, string name)
         {
             tblEmail = email;
             tblUsername = username;
+            tblName = name;
             emailBox.Text = tblEmail;
             usernameBox.Text = tblUsername;
+            nameBox.Text = tblName;
         }
         private void UserForm_Load(object sender, EventArgs e)
         {
@@ -45,6 +48,11 @@ namespace ActivityOne
             {
                 Close();
             }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

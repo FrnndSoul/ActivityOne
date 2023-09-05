@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.UserInfo = new System.Windows.Forms.DataGridView();
+            this.Backbtn = new System.Windows.Forms.Button();
+            this.Activate = new System.Windows.Forms.Button();
             this.tblName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblActivation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPUK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Backbtn = new System.Windows.Forms.Button();
-            this.Activate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +62,26 @@
             this.UserInfo.Size = new System.Drawing.Size(775, 387);
             this.UserInfo.TabIndex = 0;
             this.UserInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Backbtn
+            // 
+            this.Backbtn.Location = new System.Drawing.Point(651, 406);
+            this.Backbtn.Name = "Backbtn";
+            this.Backbtn.Size = new System.Drawing.Size(137, 32);
+            this.Backbtn.TabIndex = 2;
+            this.Backbtn.Text = "Back";
+            this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
+            // 
+            // Activate
+            // 
+            this.Activate.Location = new System.Drawing.Point(13, 407);
+            this.Activate.Name = "Activate";
+            this.Activate.Size = new System.Drawing.Size(137, 31);
+            this.Activate.TabIndex = 3;
+            this.Activate.Text = "Activate";
+            this.Activate.UseVisualStyleBackColor = true;
+            this.Activate.Click += new System.EventHandler(this.Activate_Click);
             // 
             // tblName
             // 
@@ -105,31 +125,11 @@
             // 
             // tblPUK
             // 
-            this.tblPUK.HeaderText = "PUK";
+            this.tblPUK.HeaderText = "Failed Attempt";
             this.tblPUK.MinimumWidth = 6;
             this.tblPUK.Name = "tblPUK";
             this.tblPUK.ReadOnly = true;
             this.tblPUK.Width = 125;
-            // 
-            // Backbtn
-            // 
-            this.Backbtn.Location = new System.Drawing.Point(651, 406);
-            this.Backbtn.Name = "Backbtn";
-            this.Backbtn.Size = new System.Drawing.Size(137, 32);
-            this.Backbtn.TabIndex = 2;
-            this.Backbtn.Text = "Back";
-            this.Backbtn.UseVisualStyleBackColor = true;
-            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
-            // 
-            // Activate
-            // 
-            this.Activate.Location = new System.Drawing.Point(13, 407);
-            this.Activate.Name = "Activate";
-            this.Activate.Size = new System.Drawing.Size(137, 31);
-            this.Activate.TabIndex = 3;
-            this.Activate.Text = "Activate";
-            this.Activate.UseVisualStyleBackColor = true;
-            this.Activate.Click += new System.EventHandler(this.Activate_Click);
             // 
             // AdminForm
             // 
@@ -151,13 +151,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView UserInfo;
+        private System.Windows.Forms.Button Backbtn;
+        private System.Windows.Forms.Button Activate;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblName;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblUsername;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblPassword;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblActivation;
-        private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tblPUK;
-        private System.Windows.Forms.Button Activate;
     }
 }
