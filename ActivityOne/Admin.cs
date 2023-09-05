@@ -19,6 +19,7 @@ namespace ActivityOne
             UserInfo.Rows.Add(Name, Username, Email, Password, Activation, PUK);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             AutoResizeDataGridViewColumns();
+            this.UserInfo.Columns[5].Visible = false;
             AcceptButton = Activate;
         }
         public void AutoResizeDataGridViewColumns()
