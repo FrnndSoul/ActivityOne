@@ -73,6 +73,7 @@ namespace ActivityOne
                 return;
             }
                 adminForm.AddUserToDataGridView(name, username, email, password);
+                adminForm.AutoResizeDataGridViewColumns();
                 MessageBox.Show("Registration is awaiting approval, hang tight!");
                 this.Close();
                 Close();

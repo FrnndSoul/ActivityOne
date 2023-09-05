@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.UserInfo = new System.Windows.Forms.DataGridView();
-            this.Backbtn = new System.Windows.Forms.Button();
-            this.Activate = new System.Windows.Forms.Button();
             this.tblName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblActivation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblPUK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Backbtn = new System.Windows.Forms.Button();
+            this.Activate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,14 @@
             this.tblPassword,
             this.tblActivation,
             this.tblPUK});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.UserInfo.DefaultCellStyle = dataGridViewCellStyle1;
             this.UserInfo.Location = new System.Drawing.Point(13, 13);
             this.UserInfo.Name = "UserInfo";
             this.UserInfo.ReadOnly = true;
@@ -61,26 +70,6 @@
             this.UserInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UserInfo.Size = new System.Drawing.Size(775, 387);
             this.UserInfo.TabIndex = 0;
-            // 
-            // Backbtn
-            // 
-            this.Backbtn.Location = new System.Drawing.Point(651, 406);
-            this.Backbtn.Name = "Backbtn";
-            this.Backbtn.Size = new System.Drawing.Size(137, 32);
-            this.Backbtn.TabIndex = 2;
-            this.Backbtn.Text = "Back";
-            this.Backbtn.UseVisualStyleBackColor = true;
-            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
-            // 
-            // Activate
-            // 
-            this.Activate.Location = new System.Drawing.Point(13, 407);
-            this.Activate.Name = "Activate";
-            this.Activate.Size = new System.Drawing.Size(137, 31);
-            this.Activate.TabIndex = 3;
-            this.Activate.Text = "Activate";
-            this.Activate.UseVisualStyleBackColor = true;
-            this.Activate.Click += new System.EventHandler(this.Activate_Click);
             // 
             // tblName
             // 
@@ -129,6 +118,28 @@
             this.tblPUK.Name = "tblPUK";
             this.tblPUK.ReadOnly = true;
             this.tblPUK.Width = 125;
+            // 
+            // Backbtn
+            // 
+            this.Backbtn.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.Backbtn.Location = new System.Drawing.Point(651, 406);
+            this.Backbtn.Name = "Backbtn";
+            this.Backbtn.Size = new System.Drawing.Size(137, 32);
+            this.Backbtn.TabIndex = 2;
+            this.Backbtn.Text = "Back";
+            this.Backbtn.UseVisualStyleBackColor = true;
+            this.Backbtn.Click += new System.EventHandler(this.Backbtn_Click);
+            // 
+            // Activate
+            // 
+            this.Activate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.Activate.Location = new System.Drawing.Point(13, 407);
+            this.Activate.Name = "Activate";
+            this.Activate.Size = new System.Drawing.Size(137, 31);
+            this.Activate.TabIndex = 3;
+            this.Activate.Text = "Activate";
+            this.Activate.UseVisualStyleBackColor = true;
+            this.Activate.Click += new System.EventHandler(this.Activate_Click);
             // 
             // AdminForm
             // 
