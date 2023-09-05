@@ -66,6 +66,7 @@ namespace ActivityOne
 
                 if (password == storedPassword)
                 {
+                    userRow.Cells["tblPUK"].Value = 0;
                     ShowUserForm(userRow.Cells["tblEmail"].Value.ToString(), userRow.Cells["tblUsername"].Value.ToString(), userRow.Cells["tblName"].Value.ToString());
                 }
                 else
@@ -111,7 +112,6 @@ namespace ActivityOne
             {
                 userRow.Cells["tblActivation"].Value = "Deactivated";
             }
-
             ShowErrorMessage($"Incorrect password. You have {3 - puk} attempt(s) remaining.");
         }
         private void ShowErrorMessage(string message)
