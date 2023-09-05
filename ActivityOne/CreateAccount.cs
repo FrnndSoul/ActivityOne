@@ -34,7 +34,6 @@ namespace ActivityOne
                 MessageBox.Show("Cannot register with admin as a username","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Stop);
                 return;
             }
-
             string maskedPassword = password.Length >= 4
                 ? password.Substring(0, 2) + new string('*', password.Length - 4) + password.Substring(password.Length - 2)
     :           new string('*', password.Length);
@@ -90,10 +89,6 @@ namespace ActivityOne
         {
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return System.Text.RegularExpressions.Regex.IsMatch(email, pattern);
-        }
-        private void CreateAccount_Load(object sender, EventArgs e)
-        {
-
         }
         private void Name_KeyPress(object sender, KeyPressEventArgs e)
         {

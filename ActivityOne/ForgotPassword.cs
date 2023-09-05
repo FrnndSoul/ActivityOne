@@ -20,18 +20,6 @@ namespace ActivityOne
             FormBorderStyle = FormBorderStyle.FixedSingle;
             AcceptButton = Forgot;
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void Text_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void Forgot_Click(object sender, EventArgs e)
         {
             string inputUsername = Username.Text;

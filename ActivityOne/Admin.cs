@@ -17,12 +17,8 @@ namespace ActivityOne
         {
             InitializeComponent();
             UserInfo.Rows.Add(Name, Username, Email, Password, Activation, PUK);
-            AcceptButton = Activate;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            AcceptButton = Activate;
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -32,11 +28,7 @@ namespace ActivityOne
                 e.Cancel = true;
             }
             base.OnFormClosing(e);
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        }        
         public void AddUserToDataGridView(string name, string username, string email, string password)
         {
             UserInfo.Rows.Add(name, username, email, password, "Locked", "0");

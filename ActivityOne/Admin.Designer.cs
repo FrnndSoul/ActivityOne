@@ -61,7 +61,6 @@
             this.UserInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UserInfo.Size = new System.Drawing.Size(775, 387);
             this.UserInfo.TabIndex = 0;
-            this.UserInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Backbtn
             // 
@@ -142,7 +141,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
             this.Text = "UserHub Admin";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).EndInit();
             this.ResumeLayout(false);
 

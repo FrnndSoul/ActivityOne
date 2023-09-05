@@ -60,7 +60,6 @@
             this.usernameBox.ReadOnly = true;
             this.usernameBox.Size = new System.Drawing.Size(488, 20);
             this.usernameBox.TabIndex = 2;
-            this.usernameBox.TextChanged += new System.EventHandler(this.Display_TextChanged);
             // 
             // label1
             // 
@@ -81,7 +80,6 @@
             this.label2.Size = new System.Drawing.Size(634, 200);
             this.label2.TabIndex = 4;
             this.label2.Text = resources.GetString("label2.Text");
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // passwordBox
             // 
@@ -108,7 +106,6 @@
             this.Title.ReadOnly = true;
             this.Title.Size = new System.Drawing.Size(189, 20);
             this.Title.TabIndex = 6;
-            this.Title.TextChanged += new System.EventHandler(this.Title_TextChanged);
             // 
             // Email
             // 

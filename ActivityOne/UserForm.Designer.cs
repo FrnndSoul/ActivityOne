@@ -71,7 +71,6 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(283, 25);
             this.nameBox.TabIndex = 6;
-            this.nameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // usernameBox
             // 
@@ -148,7 +147,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserForm";
             this.Text = "UserHub Profile";
-            this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

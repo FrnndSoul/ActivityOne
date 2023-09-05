@@ -29,18 +29,6 @@ namespace ActivityOne
             usernameBox.Text = tblUsername;
             nameBox.Text = tblName;
         }
-        private void UserForm_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void SignOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to logout?", "Confirm logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -48,11 +36,6 @@ namespace ActivityOne
             {
                 Close();
             }
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

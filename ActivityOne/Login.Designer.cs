@@ -55,7 +55,6 @@
             this.UserLabel.Size = new System.Drawing.Size(100, 23);
             this.UserLabel.TabIndex = 2;
             this.UserLabel.Text = "USERNAME";
-            this.UserLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // PassLabel
             // 
@@ -151,7 +150,6 @@
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(456, 27);
             this.Password.TabIndex = 1;
-            this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
             // 
             // SigninButton
             // 
@@ -191,7 +189,6 @@
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(447, 27);
             this.Username.TabIndex = 0;
-            this.Username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -225,7 +222,6 @@
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "UserHub Login";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

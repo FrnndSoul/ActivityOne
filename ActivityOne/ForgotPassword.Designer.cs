@@ -53,7 +53,6 @@
             this.Text.Size = new System.Drawing.Size(246, 37);
             this.Text.TabIndex = 0;
             this.Text.Text = "Find your account";
-            this.Text.Click += new System.EventHandler(this.Text_Click);
             // 
             // label1
             // 
@@ -64,7 +63,6 @@
             this.label1.Size = new System.Drawing.Size(141, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Registered Email:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -180,7 +178,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "ForgotPassword";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -31,23 +31,7 @@ namespace ActivityOne
             adminFormInstance.Show();
             adminFormInstance.DeleteFirstRow();
             adminFormInstance.Hide();
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void Password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        }        
         private void Showpass_CheckedChanged(object sender, EventArgs e)
         {
             Password.PasswordChar = Showpass.Checked ? '\0' : '*';
