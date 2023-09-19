@@ -27,10 +27,7 @@ namespace ActivityOne
             Forgotbtn.FlatAppearance.BorderSize = 0;
             Createbtn.FlatAppearance.BorderSize = 0;
 
-            adminFormInstance = new AdminForm();            
-            adminFormInstance.Show();
-            adminFormInstance.DeleteFirstRow();
-            adminFormInstance.Hide();
+            adminFormInstance = new AdminForm();
         }        
         private void Showpass_CheckedChanged(object sender, EventArgs e)
         {
@@ -40,15 +37,13 @@ namespace ActivityOne
         {
             string username = Username.Text;
             string password = Password.Text;
-            DataGridViewRow userRow = adminFormInstance.GetUserInfoRowByUsername(username);
 
             if (username == "admin" && password == "admin123")
             {
                 ShowAdminForm();
                 return;
             }
-
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            /*if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 ShowErrorMessage("Please provide both username and password.");
                 return;
@@ -73,7 +68,7 @@ namespace ActivityOne
                 {
                     HandleIncorrectPassword(userRow);
                 }
-            }
+            }*/
             else
             {
                 DataGridViewRow passRow = adminFormInstance.GetUserInfoRowByPassword(password);

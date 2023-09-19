@@ -4,27 +4,24 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ActivityOne
 {
     public partial class AdminForm : Form
     {
-        String Name, Username, Email, Password, Activation, PUK;
+        public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
+        public MySqlConnection connection = new MySqlConnection(mysqlcon);
+
         public AdminForm()
         {
             InitializeComponent();
-            UserInfo.Rows.Add(Name, Username, Email, Password, Activation, PUK);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            AutoResizeDataGridViewColumns();
-            this.UserInfo.Columns[5].Visible = false;
             AcceptButton = Activate;
-        }
-        public void AutoResizeDataGridViewColumns()
-        {
-            UserInfo.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -34,10 +31,43 @@ namespace ActivityOne
                 e.Cancel = true;
             }
             base.OnFormClosing(e);
-        }        
-        public void AddUserToDataGridView(string name, string username, string email, string password)
+        }
+        private void AdminForm_Load(object sender, EventArgs e)
         {
-            UserInfo.Rows.Add(name, username, email, password, "Locked", "0");
+            LoadData();
+        }
+        public void LoadData()
+        {
+            try
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM `userlist`";
+                MySqlCommand cmd = new MySqlCommand(sql, connection);
+
+                System.Data.DataTable dataTable = new System.Data.DataTable();
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+                UserInfo.DataSource = dataTable;
+                UserInfo.Columns[0].Visible = false;
+                UserInfo.Columns[4].Visible = false;
+                UserInfo.Columns[6].Visible = false;
+                UserInfo.Columns[7].Visible = false;
+                UserInfo.Columns[8].Visible = false;
+                UserInfo.Columns[9].Visible = false;
+                UserInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("An error occurred: " + e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
         private void Activate_Click(object sender, EventArgs e)
         {

@@ -64,17 +64,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(65, 137);
+            this.label2.Location = new System.Drawing.Point(65, 214);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Username";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 214);
+            this.label3.Location = new System.Drawing.Point(65, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 23);
             this.label3.TabIndex = 6;
@@ -128,7 +129,7 @@
             // 
             this.panel3.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.Email);
+            this.panel3.Controls.Add(this.Username);
             this.panel3.Location = new System.Drawing.Point(37, 239);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
@@ -140,7 +141,7 @@
             this.Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.Email.Location = new System.Drawing.Point(17, 11);
+            this.Email.Location = new System.Drawing.Point(18, 11);
             this.Email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(440, 27);
@@ -150,7 +151,7 @@
             // 
             this.panel2.BackgroundImage = global::ActivityOne.Properties.Resources.rect1;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.Username);
+            this.panel2.Controls.Add(this.Email);
             this.panel2.Location = new System.Drawing.Point(37, 161);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
@@ -162,7 +163,7 @@
             this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Username.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.Username.Location = new System.Drawing.Point(17, 11);
+            this.Username.Location = new System.Drawing.Point(18, 11);
             this.Username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(440, 27);

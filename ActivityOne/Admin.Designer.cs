@@ -31,12 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.UserInfo = new System.Windows.Forms.DataGridView();
-            this.tblName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tblUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tblEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tblPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tblActivation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tblPUK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Backbtn = new System.Windows.Forms.Button();
             this.Activate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
@@ -47,13 +41,6 @@
             this.UserInfo.AllowUserToAddRows = false;
             this.UserInfo.AllowUserToDeleteRows = false;
             this.UserInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UserInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tblName,
-            this.tblUsername,
-            this.tblEmail,
-            this.tblPassword,
-            this.tblActivation,
-            this.tblPUK});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,54 +57,6 @@
             this.UserInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.UserInfo.Size = new System.Drawing.Size(775, 387);
             this.UserInfo.TabIndex = 0;
-            // 
-            // tblName
-            // 
-            this.tblName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tblName.HeaderText = "Name";
-            this.tblName.MinimumWidth = 6;
-            this.tblName.Name = "tblName";
-            this.tblName.ReadOnly = true;
-            // 
-            // tblUsername
-            // 
-            this.tblUsername.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tblUsername.HeaderText = "Username";
-            this.tblUsername.MinimumWidth = 6;
-            this.tblUsername.Name = "tblUsername";
-            this.tblUsername.ReadOnly = true;
-            // 
-            // tblEmail
-            // 
-            this.tblEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tblEmail.HeaderText = "Email";
-            this.tblEmail.MinimumWidth = 6;
-            this.tblEmail.Name = "tblEmail";
-            this.tblEmail.ReadOnly = true;
-            // 
-            // tblPassword
-            // 
-            this.tblPassword.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tblPassword.HeaderText = "Password";
-            this.tblPassword.MinimumWidth = 6;
-            this.tblPassword.Name = "tblPassword";
-            this.tblPassword.ReadOnly = true;
-            // 
-            // tblActivation
-            // 
-            this.tblActivation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tblActivation.HeaderText = "Activation";
-            this.tblActivation.MinimumWidth = 6;
-            this.tblActivation.Name = "tblActivation";
-            this.tblActivation.ReadOnly = true;
-            // 
-            // tblPUK
-            // 
-            this.tblPUK.HeaderText = "Failed Attempt";
-            this.tblPUK.MinimumWidth = 6;
-            this.tblPUK.Name = "tblPUK";
-            this.tblPUK.ReadOnly = true;
-            this.tblPUK.Width = 125;
             // 
             // Backbtn
             // 
@@ -152,6 +91,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
             this.Text = "UserHub Admin";
+            this.Load += new System.EventHandler(this.AdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).EndInit();
             this.ResumeLayout(false);
 
@@ -162,11 +102,5 @@
         private System.Windows.Forms.DataGridView UserInfo;
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.Button Activate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tblName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tblUsername;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tblEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tblPassword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tblActivation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tblPUK;
     }
 }

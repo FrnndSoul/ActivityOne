@@ -10,7 +10,6 @@ namespace ActivityOne
         public CreateAccount()
         {
             InitializeComponent();
-
             FormBorderStyle = FormBorderStyle.FixedSingle;
             PasswordBox.PasswordChar = '*';
             ShowPassBox.CheckedChanged += ShowPass_CheckedChanged;
@@ -22,7 +21,6 @@ namespace ActivityOne
         }
         private void Registerbtn_Click(object sender, EventArgs e)
         {
-            AdminForm adminForm = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
 
             string name = Name.Text;
             string username = Username.Text;
@@ -49,31 +47,20 @@ namespace ActivityOne
             {
                 return;
             }
-
             if (!IsValidEmail(email))
             {
                 MessageBox.Show("Please enter a valid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             if (!IsPasswordValid(password))
             {
                 MessageBox.Show("Password must have at least 8 characters, \nwith uppercase and lowercase letters, \nand at least one special character.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            if (adminForm.IsUsernameTaken(username))
-            {
-                MessageBox.Show("Username already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (adminForm.IsEmailTaken(email))
-            {
-                MessageBox.Show("Email already taken!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-                adminForm.AddUserToDataGridView(name, username, email, password);
-                adminForm.AutoResizeDataGridViewColumns();
+                //hash the password
+                //general salt the hash
+                //salt per user on the hashed password
+                //add to DB
                 MessageBox.Show("Registration is awaiting approval, hang tight!");
                 this.Close();
                 Close();
@@ -118,6 +105,11 @@ namespace ActivityOne
             }
 
             return hasUppercase && hasLowercase && hasSpecialCharacter;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
