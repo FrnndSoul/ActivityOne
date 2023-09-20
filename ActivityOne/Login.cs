@@ -79,8 +79,7 @@ namespace ActivityOne
                 {
                     connection.Open();
 
-                    // Check if the username exists in the database
-                    string checkUsernameQuery = "SELECT ID, Name, Email, Activation, PassHash FROM userlist WHERE Username = @Username";
+                    string checkUsernameQuery = "SELECT ID, Name, Email, Username, Activation, PassHash FROM userlist WHERE Username = @Username";
 
                     using (MySqlCommand checkUsernameCommand = new MySqlCommand(checkUsernameQuery, connection))
                     {
@@ -90,11 +89,12 @@ namespace ActivityOne
                         {
                             if (reader.Read())
                             {
-                                string userIDFromDB = reader["ID"].ToString();
-                                string nameFromDB = reader["Name"].ToString();
-                                string emailFromDB = reader["Email"].ToString();
                                 string activationStatus = reader["Activation"].ToString();
                                 string hashedPasswordFromDB = reader["PassHash"].ToString();
+                                string DID = reader["ID"].ToString();
+                                string DName = reader["Name"].ToString();
+                                string DUsername = reader["Username"].ToString();
+                                string DEmail = reader["Email"].ToString();
 
                                 if (string.Equals(activationStatus, "Active", StringComparison.OrdinalIgnoreCase))
                                 {
@@ -102,11 +102,8 @@ namespace ActivityOne
 
                                     if (hashedPassword == hashedPasswordFromDB)
                                     {
-                                        UserForm userForm = new UserForm();
-                                        userForm.UserID = userIDFromDB;
-                                        userForm.UserName = nameFromDB;
-                                        userForm.UserUsername = username;
-                                        userForm.UserEmail = emailFromDB;
+                                        UserForm form = new UserForm();
+                                        form.LoadData(DID, DName, DUsername, DEmail);
                                         ShowUserForm();
                                         ClearFields();
                                         return;

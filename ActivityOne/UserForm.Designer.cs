@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SignOut = new System.Windows.Forms.Button();
-            this.nameBox = new System.Windows.Forms.TextBox();
-            this.usernameBox = new System.Windows.Forms.TextBox();
-            this.emailBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.idBox = new System.Windows.Forms.TextBox();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.usernameBox = new System.Windows.Forms.TextBox();
+            this.emailBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,40 +57,13 @@
             // SignOut
             // 
             this.SignOut.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.SignOut.Location = new System.Drawing.Point(629, 393);
+            this.SignOut.Location = new System.Drawing.Point(650, 409);
             this.SignOut.Name = "SignOut";
             this.SignOut.Size = new System.Drawing.Size(138, 29);
             this.SignOut.TabIndex = 5;
             this.SignOut.Text = "SIGN OUT";
             this.SignOut.UseVisualStyleBackColor = true;
             this.SignOut.Click += new System.EventHandler(this.SignOut_Click);
-            // 
-            // nameBox
-            // 
-            this.nameBox.Enabled = false;
-            this.nameBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.nameBox.Location = new System.Drawing.Point(391, 216);
-            this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(283, 25);
-            this.nameBox.TabIndex = 6;
-            // 
-            // usernameBox
-            // 
-            this.usernameBox.Enabled = false;
-            this.usernameBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.usernameBox.Location = new System.Drawing.Point(391, 282);
-            this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(283, 25);
-            this.usernameBox.TabIndex = 7;
-            // 
-            // emailBox
-            // 
-            this.emailBox.Enabled = false;
-            this.emailBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.emailBox.Location = new System.Drawing.Point(391, 348);
-            this.emailBox.Name = "emailBox";
-            this.emailBox.Size = new System.Drawing.Size(283, 25);
-            this.emailBox.TabIndex = 8;
             // 
             // label1
             // 
@@ -144,27 +117,46 @@
             // 
             // idBox
             // 
-            this.idBox.Enabled = false;
-            this.idBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.idBox.Location = new System.Drawing.Point(391, 150);
+            this.idBox.Location = new System.Drawing.Point(391, 152);
             this.idBox.Name = "idBox";
-            this.idBox.Size = new System.Drawing.Size(283, 25);
-            this.idBox.TabIndex = 13;
+            this.idBox.Size = new System.Drawing.Size(313, 22);
+            this.idBox.TabIndex = 15;
+            // 
+            // nameBox
+            // 
+            this.nameBox.Location = new System.Drawing.Point(391, 217);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(313, 22);
+            this.nameBox.TabIndex = 16;
+            // 
+            // usernameBox
+            // 
+            this.usernameBox.Location = new System.Drawing.Point(391, 283);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(313, 22);
+            this.usernameBox.TabIndex = 17;
+            // 
+            // emailBox
+            // 
+            this.emailBox.Location = new System.Drawing.Point(391, 349);
+            this.emailBox.Name = "emailBox";
+            this.emailBox.Size = new System.Drawing.Size(313, 22);
+            this.emailBox.TabIndex = 18;
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.emailBox);
+            this.Controls.Add(this.usernameBox);
+            this.Controls.Add(this.nameBox);
             this.Controls.Add(this.idBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.emailBox);
-            this.Controls.Add(this.usernameBox);
-            this.Controls.Add(this.nameBox);
             this.Controls.Add(this.SignOut);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -181,14 +173,14 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button SignOut;
-        private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.TextBox usernameBox;
-        private System.Windows.Forms.TextBox emailBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox idBox;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.TextBox usernameBox;
+        private System.Windows.Forms.TextBox emailBox;
     }
 }
