@@ -93,7 +93,7 @@ namespace ActivityOne
                                 string activationStatus = reader["Activation"].ToString();
                                 string hashedPasswordFromDB = reader["PassHash"].ToString();
 
-                                if (activationStatus == "Activated")
+                                if (string.Equals(activationStatus, "Active", StringComparison.OrdinalIgnoreCase))
                                 {
                                     string hashedPassword = HashHelper.HashString(password);
 
@@ -104,7 +104,7 @@ namespace ActivityOne
                                     else
                                     {
                                         MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        //HandleIncorrectPassword();
+                                        HandleIncorrectPassword(username);
                                     }
                                 }
                                 else
@@ -124,43 +124,8 @@ namespace ActivityOne
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            /*if (userRow != null)
-            {
-                string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
-                string activationStatus = userRow.Cells["tblActivation"].Value.ToString();
-
-                if (activationStatus != "Activated")
-                {
-                    ShowErrorMessage("Your account is not active.");
-                    return;
-                }
-
-                if (password == storedPassword)
-                {
-                    userRow.Cells["tblPUK"].Value = 0;
-                    ShowUserForm(userRow.Cells["tblEmail"].Value.ToString(), userRow.Cells["tblUsername"].Value.ToString(), userRow.Cells["tblName"].Value.ToString());
-                }
-                else
-                {
-                    HandleIncorrectPassword(userRow);
-                }
-            }
-            else
-            {
-                DataGridViewRow passRow = adminFormInstance.GetUserInfoRowByPassword(password);
-
-                if (passRow == null)
-                {
-                    ShowErrorMessage("Account not found!");
-                }
-                else if (passRow.Cells["tblUsername"].Value.ToString() != username)
-                {
-                    ShowErrorMessage("Please provide correct username");
-                }
-            }*/
         }
+
         private void ShowAdminForm()
         {
             MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
@@ -187,7 +152,6 @@ namespace ActivityOne
                 {
                     connection.Open();
 
-                    // Get the current 'Attempt' value from the database
                     string getAttemptQuery = "SELECT Attempt FROM userlist WHERE Username = @Username";
 
                     using (MySqlCommand getAttemptCommand = new MySqlCommand(getAttemptQuery, connection))
@@ -197,10 +161,8 @@ namespace ActivityOne
                         object attemptObj = getAttemptCommand.ExecuteScalar();
                         int currentAttempt = (attemptObj != null) ? Convert.ToInt32(attemptObj) : 0;
 
-                        // Increment the 'Attempt' value
                         currentAttempt++;
 
-                        // Update the 'Attempt' value in the database
                         string updateAttemptQuery = "UPDATE userlist SET Attempt = @Attempt WHERE Username = @Username";
 
                         using (MySqlCommand updateAttemptCommand = new MySqlCommand(updateAttemptQuery, connection))
