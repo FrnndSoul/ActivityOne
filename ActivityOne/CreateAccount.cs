@@ -130,14 +130,15 @@ namespace ActivityOne
                 MessageBox.Show("Password must have at least 8 characters, \nwith uppercase and lowercase letters, \nand at least one special character.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-                string ID = RandomNumberGenerator.GenerateRandomNumber();   //generated ID number
+
+            string ID = RandomNumberGenerator.GenerateRandomNumber();   //generated ID number
                 //MessageBox.Show(ID);
-                string hashedPassword = HashHelper.HashString(password);    //hashed the pass
+            string hashedPassword = HashHelper.HashString(password);    //hashed the pass
                 //MessageBox.Show("hashed: " + hashedPassword);
-                string fixedSalt = HashHelper_Salt.HashString_Salt("420" + password + "69");    //used a fixed salt
+            string fixedSalt = HashHelper_Salt.HashString_Salt("420" + password + "69");    //used a fixed salt
                 //MessageBox.Show("fixed salt: " + fixedSalt);
-                string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(password + ID);    //used per user salt
-                                                                                                      //MessageBox.Show("per user salt: " + perUserSalt);
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(password + ID);    //used per user salt
+                //MessageBox.Show("per user salt: " + perUserSalt);
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
@@ -170,8 +171,12 @@ namespace ActivityOne
             finally
             {
                 connection.Close();
-                this.Close();
             }
+            Name.Text = "";
+            Username.Text = "";
+            Email.Text = "";
+            PasswordBox.Text = "";
+            this.Close();
         }
         private void Backbtn_Click(object sender, EventArgs e)
         {

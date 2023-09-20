@@ -68,19 +68,72 @@ namespace ActivityOne
         }
         private void Activate_Click(object sender, EventArgs e)
         {
+            // Get the selected row index
+            int selectedRowIndex = UserInfo.SelectedCells[0].RowIndex;
 
-        }
-        public bool IsEmailTaken(string email)
-        {
-            foreach (DataGridViewRow row in UserInfo.Rows)
+            // Check if the selected row index is valid
+            if (selectedRowIndex >= 0 && selectedRowIndex < UserInfo.Rows.Count)
             {
-                if (row.Cells["tblEmail"].Value != null && row.Cells["tblEmail"].Value.ToString() == email)
+                // Get the username from the selected row
+                string selectedUsername = UserInfo.Rows[selectedRowIndex].Cells["Username"].Value.ToString();
+
+                try
                 {
-                    return true;
+                    using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                    {
+                        connection.Open();
+
+                        // Check if the selected username exists in the database
+                        string checkUsernameQuery = "SELECT Activation FROM userlist WHERE Username = @Username";
+
+                        using (MySqlCommand checkUsernameCommand = new MySqlCommand(checkUsernameQuery, connection))
+                        {
+                            checkUsernameCommand.Parameters.AddWithValue("@Username", selectedUsername);
+
+                            object activationStatusObj = checkUsernameCommand.ExecuteScalar();
+                            string activationStatus = (activationStatusObj != null) ? activationStatusObj.ToString() : "";
+
+                            if (activationStatus == "Active")
+                            {
+                                MessageBox.Show("Account is already activated.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                // Update the 'Activation' status to 'Active' in the database for the selected username
+                                string activateAccountQuery = "UPDATE userlist SET Activation = 'Active' WHERE Username = @Username";
+
+                                using (MySqlCommand activateAccountCommand = new MySqlCommand(activateAccountQuery, connection))
+                                {
+                                    activateAccountCommand.Parameters.AddWithValue("@Username", selectedUsername);
+
+                                    int rowsAffected = activateAccountCommand.ExecuteNonQuery();
+
+                                    if (rowsAffected > 0)
+                                    {
+                                        MessageBox.Show("Account has been successfully activated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Account activation failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                LoadData();
             }
-            return false;
+            else
+            {
+                MessageBox.Show("Please select a valid row to activate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
         private void Backbtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -89,26 +142,11 @@ namespace ActivityOne
                 this.Hide();
             }
         }
-        public void DeleteFirstRow()
-        {
-            UserInfo.Rows.RemoveAt(0);
-        }
         public DataGridViewRow GetUserInfoRowByUsername(string username)
         {
             foreach (DataGridViewRow row in UserInfo.Rows)
             {
                 if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == username)
-                {
-                    return row;
-                }
-            }
-            return null;
-        }
-        public DataGridViewRow GetUserInfoRowByPassword(string password)
-        {
-            foreach (DataGridViewRow row in UserInfo.Rows)
-            {
-                if (row.Cells["tblPassword"].Value != null && row.Cells["tblPassword"].Value.ToString() == password)
                 {
                     return row;
                 }
