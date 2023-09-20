@@ -13,7 +13,8 @@ namespace ActivityOne
 {
     public partial class LoginForm : Form
     {
-        private AdminForm adminFormInstance;        
+        private AdminForm adminFormInstance;
+        private CreateAccount createAccountInstance;
         public LoginForm()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace ActivityOne
             Createbtn.FlatAppearance.BorderSize = 0;
 
             adminFormInstance = new AdminForm();
+            createAccountInstance = new CreateAccount();
         }        
         private void Showpass_CheckedChanged(object sender, EventArgs e)
         {
@@ -41,7 +43,6 @@ namespace ActivityOne
             if (username == "admin" && password == "admin123")
             {
                 ShowAdminForm();
-                return;
             }
             /*if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -89,6 +90,10 @@ namespace ActivityOne
             adminFormInstance.Show();
             ClearFields();
         }
+        private void ShowCreateAccount()
+        {
+            createAccountInstance.ShowDialog();
+        }
         private void ShowUserForm(string email, string username, string name)
         {
             UserForm userForm = new UserForm();
@@ -121,21 +126,7 @@ namespace ActivityOne
         }
         private void Createbtn_Click(object sender, EventArgs e)
         {
-            CreateAccount createAccount = Application.OpenForms.OfType<CreateAccount>().FirstOrDefault();
-
-            if (createAccount == null || createAccount.IsDisposed)
-            {
-                DialogResult result = MessageBox.Show("Do you want to sign up?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    createAccount = new CreateAccount();
-                    createAccount.ShowDialog();
-                }
-            }
-            else
-            {
-                createAccount.BringToFront();
-            }
+            ShowCreateAccount();
         }
         private void Forgotbtn_Click(object sender, EventArgs e)
         {

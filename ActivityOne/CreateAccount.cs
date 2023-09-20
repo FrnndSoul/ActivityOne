@@ -2,11 +2,85 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Security.Cryptography;
+using System.Text;
+using MySql.Data.MySqlClient;
+
+public class HashHelper
+{
+    public static string HashString(string input)
+    {
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+
+            byte[] hashBytes = sha256.ComputeHash(inputBytes);
+
+            string hashedString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+            return hashedString;
+        }
+    }
+}
+public class HashHelper_Salt
+{
+    public static string HashString_Salt(string input_Salt)
+    {
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] inputBytes_Salt = Encoding.UTF8.GetBytes(input_Salt);
+
+            byte[] hashBytes_Salt = sha256.ComputeHash(inputBytes_Salt);
+
+            string hashedString_Salt = BitConverter.ToString(hashBytes_Salt).Replace("-", "").ToLower();
+
+            return hashedString_Salt;
+        }
+    }
+}
+public class HashHelper_SaltperUser
+{
+    public static string HashString_SaltperUser(string input_SaltperUser)
+    {
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] inputBytes_SaltperUser = Encoding.UTF8.GetBytes(input_SaltperUser);
+
+            byte[] hashBytes_SaltperUser = sha256.ComputeHash(inputBytes_SaltperUser);
+
+            string hashedString_SaltperUser = BitConverter.ToString(hashBytes_SaltperUser).Replace("-", "").ToLower();
+
+            return hashedString_SaltperUser;
+        }
+    }
+}
+public class RandomNumberGenerator
+{
+    private static Random random = new Random();
+
+    public static string GenerateRandomNumber()
+    {
+        var digits = Enumerable.Range(0, 10).ToList();
+
+        for (int i = 0; i < digits.Count; i++)
+        {
+            int j = random.Next(i, digits.Count);
+            int temp = digits[i];
+            digits[i] = digits[j];
+            digits[j] = temp;
+        }
+        string randomNumber = string.Join("", digits.Take(4));
+
+        return randomNumber;
+    }
+}
 
 namespace ActivityOne
 {
     public partial class CreateAccount : Form
     {
+        public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
+        public MySqlConnection connection = new MySqlConnection(mysqlcon);
         public CreateAccount()
         {
             InitializeComponent();
@@ -21,7 +95,6 @@ namespace ActivityOne
         }
         private void Registerbtn_Click(object sender, EventArgs e)
         {
-
             string name = Name.Text;
             string username = Username.Text;
             string email = Email.Text;
@@ -57,13 +130,48 @@ namespace ActivityOne
                 MessageBox.Show("Password must have at least 8 characters, \nwith uppercase and lowercase letters, \nand at least one special character.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-                //hash the password
-                //general salt the hash
-                //salt per user on the hashed password
-                //add to DB
-                MessageBox.Show("Registration is awaiting approval, hang tight!");
+                string ID = RandomNumberGenerator.GenerateRandomNumber();   //generated ID number
+                //MessageBox.Show(ID);
+                string hashedPassword = HashHelper.HashString(password);    //hashed the pass
+                //MessageBox.Show("hashed: " + hashedPassword);
+                string fixedSalt = HashHelper_Salt.HashString_Salt("420" + password + "69");    //used a fixed salt
+                //MessageBox.Show("fixed salt: " + fixedSalt);
+                string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(password + ID);    //used per user salt
+                                                                                                      //MessageBox.Show("per user salt: " + perUserSalt);
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                {
+                    connection.Open();
+
+                    string query = "INSERT INTO `userlist`(`ID`, `Name`, `Email`, `Username`, `Activation`, `Attempt`, `PassHash`, `SaltHash`, `UserSalt`)" +
+                                   "VALUES (@ID, @Name, @Email, @Username, 'Inactive', 0, @PassHash, @SaltHash, @UserSalt)";
+
+                    using (MySqlCommand execute = new MySqlCommand(query, connection))
+                    {
+                        execute.Parameters.AddWithValue("@ID", ID);
+                        execute.Parameters.AddWithValue("@Name", name);
+                        execute.Parameters.AddWithValue("@Email", email);
+                        execute.Parameters.AddWithValue("@Username", username);
+                        execute.Parameters.AddWithValue("@PassHash", hashedPassword);
+                        execute.Parameters.AddWithValue("@SaltHash", fixedSalt);
+                        execute.Parameters.AddWithValue("@UserSalt", perUserSalt);
+
+                        execute.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Awaiting admin approval", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR");
+                return;
+            }
+            finally
+            {
+                connection.Close();
                 this.Close();
-                Close();
+            }
         }
         private void Backbtn_Click(object sender, EventArgs e)
         {
@@ -103,13 +211,7 @@ namespace ActivityOne
                 else if (char.IsSymbol(c) || char.IsPunctuation(c))
                     hasSpecialCharacter = true;
             }
-
             return hasUppercase && hasLowercase && hasSpecialCharacter;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

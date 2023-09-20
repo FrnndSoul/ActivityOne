@@ -52,12 +52,9 @@ namespace ActivityOne
                     adapter.Fill(dataTable);
                 }
                 UserInfo.DataSource = dataTable;
-                UserInfo.Columns[0].Visible = false;
-                UserInfo.Columns[4].Visible = false;
-                UserInfo.Columns[6].Visible = false;
-                UserInfo.Columns[7].Visible = false;
-                UserInfo.Columns[8].Visible = false;
-                UserInfo.Columns[9].Visible = false;
+                UserInfo.Columns[6].Visible = false; //hashedpass
+                UserInfo.Columns[7].Visible = false; //fixedsalt
+                UserInfo.Columns[8].Visible = false; //perusersalt
                 UserInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
             catch (Exception e)
@@ -71,56 +68,7 @@ namespace ActivityOne
         }
         private void Activate_Click(object sender, EventArgs e)
         {
-            if (UserInfo.SelectedRows.Count != 0)
-            {
-                DataGridViewRow selectedRow = UserInfo.SelectedRows[0];
-                int statusColumnIndex = UserInfo.Columns["tblActivation"].Index;
-                int pukColumnIndex = UserInfo.Columns["tblPUK"].Index;
 
-                string currentStatus = selectedRow.Cells[statusColumnIndex].Value.ToString();
-
-                if (currentStatus == "Activated")
-                {
-                    MessageBox.Show("User profile is already activated!");
-                }
-                else
-                {
-                    if (currentStatus == "Locked")
-                    {
-                        DialogResult result = MessageBox.Show("Are you sure you want to activate this account?", "Confirm Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            selectedRow.Cells[statusColumnIndex].Value = "Activated";
-                            MessageBox.Show("Account activated!");
-                        }
-                    }
-                    else
-                    {
-                        DialogResult result = MessageBox.Show("Are you sure you want to reactivate this account?", "Confirm Reactivation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            selectedRow.Cells[statusColumnIndex].Value = "Activated";
-                            selectedRow.Cells[pukColumnIndex].Value = "0";
-                            MessageBox.Show("Account reactivated!");
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No data selected!");
-            }
-        }
-        public bool IsUsernameTaken(string username)
-        {
-            foreach (DataGridViewRow row in UserInfo.Rows)
-            {
-                if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == username)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
         public bool IsEmailTaken(string email)
         {

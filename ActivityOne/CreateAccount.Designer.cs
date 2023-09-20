@@ -69,7 +69,6 @@
             this.label2.Size = new System.Drawing.Size(87, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Username";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -243,7 +242,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.Registerbtn);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Text = "Create Account with UserHub";
