@@ -13,6 +13,7 @@ namespace ActivityOne
 {
     public partial class UserForm : Form       
     {
+        string id, name, username, email;
         public UserForm()
         {
             InitializeComponent();
@@ -28,24 +29,18 @@ namespace ActivityOne
         }
         public void LoadData(string DID, string DName, string DUsername, string DEmail)
         {
-            //MessageBox.Show($"ID: {DID}, Name: {DName}, Username: {DUsername}, Email: {DEmail} "); this works
+            MessageBox.Show($"ID: {DID}, Name: {DName}, Username: {DUsername}, Email: {DEmail} "); //this works
             //but the ones below do not work
-            try
-            {
-                idBox.Text = DID;
-                nameBox.Text = DName;
-                usernameBox.Text = DUsername;
-                emailBox.Text = DEmail;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+            //I tried idBox.Text = DID; but it doesnt work
+            id = DID;
+            name = DName;
+            username = DUsername;
+            email = DEmail;
 
-        private void UserForm_Load(object sender, EventArgs e)
-        {
-
+            idBox.Text = id;
+            nameBox.Text = name;
+            usernameBox.Text = username;
+            emailBox.Text = email;
         }
     }
 }

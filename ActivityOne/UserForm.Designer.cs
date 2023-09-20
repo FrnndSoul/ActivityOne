@@ -117,8 +117,9 @@
             // 
             // idBox
             // 
-            this.idBox.Location = new System.Drawing.Point(391, 152);
+            this.idBox.Location = new System.Drawing.Point(391, 151);
             this.idBox.Name = "idBox";
+            this.idBox.ReadOnly = true;
             this.idBox.Size = new System.Drawing.Size(313, 22);
             this.idBox.TabIndex = 15;
             // 
@@ -126,6 +127,7 @@
             // 
             this.nameBox.Location = new System.Drawing.Point(391, 217);
             this.nameBox.Name = "nameBox";
+            this.nameBox.ReadOnly = true;
             this.nameBox.Size = new System.Drawing.Size(313, 22);
             this.nameBox.TabIndex = 16;
             // 
@@ -133,6 +135,7 @@
             // 
             this.usernameBox.Location = new System.Drawing.Point(391, 283);
             this.usernameBox.Name = "usernameBox";
+            this.usernameBox.ReadOnly = true;
             this.usernameBox.Size = new System.Drawing.Size(313, 22);
             this.usernameBox.TabIndex = 17;
             // 
@@ -140,6 +143,7 @@
             // 
             this.emailBox.Location = new System.Drawing.Point(391, 349);
             this.emailBox.Name = "emailBox";
+            this.emailBox.ReadOnly = true;
             this.emailBox.Size = new System.Drawing.Size(313, 22);
             this.emailBox.TabIndex = 18;
             // 
@@ -162,7 +166,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserForm";
             this.Text = "UserHub Profile";
-            this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
