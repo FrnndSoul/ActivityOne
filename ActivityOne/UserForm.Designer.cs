@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.idBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             // SignOut
             // 
             this.SignOut.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.SignOut.Location = new System.Drawing.Point(591, 359);
+            this.SignOut.Location = new System.Drawing.Point(629, 393);
             this.SignOut.Name = "SignOut";
             this.SignOut.Size = new System.Drawing.Size(138, 29);
             this.SignOut.TabIndex = 5;
@@ -67,7 +69,7 @@
             // 
             this.nameBox.Enabled = false;
             this.nameBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.nameBox.Location = new System.Drawing.Point(446, 150);
+            this.nameBox.Location = new System.Drawing.Point(391, 216);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(283, 25);
             this.nameBox.TabIndex = 6;
@@ -76,7 +78,7 @@
             // 
             this.usernameBox.Enabled = false;
             this.usernameBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.usernameBox.Location = new System.Drawing.Point(446, 222);
+            this.usernameBox.Location = new System.Drawing.Point(391, 282);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(283, 25);
             this.usernameBox.TabIndex = 7;
@@ -85,7 +87,7 @@
             // 
             this.emailBox.Enabled = false;
             this.emailBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.emailBox.Location = new System.Drawing.Point(446, 294);
+            this.emailBox.Location = new System.Drawing.Point(391, 348);
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(283, 25);
             this.emailBox.TabIndex = 8;
@@ -94,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(443, 131);
+            this.label1.Location = new System.Drawing.Point(388, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 17);
             this.label1.TabIndex = 9;
@@ -104,7 +106,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(443, 203);
+            this.label2.Location = new System.Drawing.Point(388, 263);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 17);
             this.label2.TabIndex = 10;
@@ -114,7 +116,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(443, 275);
+            this.label3.Location = new System.Drawing.Point(388, 329);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 17);
             this.label3.TabIndex = 11;
@@ -130,11 +132,32 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Welcome to\r\nUserHub Profile";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(388, 131);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "ID NUMBER";
+            // 
+            // idBox
+            // 
+            this.idBox.Enabled = false;
+            this.idBox.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.idBox.Location = new System.Drawing.Point(391, 150);
+            this.idBox.Name = "idBox";
+            this.idBox.Size = new System.Drawing.Size(283, 25);
+            this.idBox.TabIndex = 13;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.idBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -147,6 +170,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserForm";
             this.Text = "UserHub Profile";
+            this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,5 +188,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox idBox;
     }
 }

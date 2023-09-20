@@ -80,7 +80,7 @@ namespace ActivityOne
                     connection.Open();
 
                     // Check if the username exists in the database
-                    string checkUsernameQuery = "SELECT Activation, PassHash FROM userlist WHERE Username = @Username";
+                    string checkUsernameQuery = "SELECT ID, Name, Email, Activation, PassHash FROM userlist WHERE Username = @Username";
 
                     using (MySqlCommand checkUsernameCommand = new MySqlCommand(checkUsernameQuery, connection))
                     {
@@ -90,6 +90,9 @@ namespace ActivityOne
                         {
                             if (reader.Read())
                             {
+                                string userIDFromDB = reader["ID"].ToString();
+                                string nameFromDB = reader["Name"].ToString();
+                                string emailFromDB = reader["Email"].ToString();
                                 string activationStatus = reader["Activation"].ToString();
                                 string hashedPasswordFromDB = reader["PassHash"].ToString();
 
@@ -99,7 +102,14 @@ namespace ActivityOne
 
                                     if (hashedPassword == hashedPasswordFromDB)
                                     {
-                                        MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        UserForm userForm = new UserForm();
+                                        userForm.UserID = userIDFromDB;
+                                        userForm.UserName = nameFromDB;
+                                        userForm.UserUsername = username;
+                                        userForm.UserEmail = emailFromDB;
+                                        ShowUserForm();
+                                        ClearFields();
+                                        return;
                                     }
                                     else
                                     {
@@ -136,10 +146,10 @@ namespace ActivityOne
         {
             createAccountInstance.ShowDialog();
         }
-        private void ShowUserForm(string email, string username, string name)
+        private void ShowUserForm()
         {
-            //get userinfo in database
-            MessageBox.Show("Login success!", $"WELCOME {username}!", MessageBoxButtons.OK);
+
+            MessageBox.Show("Login success!", "WELCOME", MessageBoxButtons.OK);
             ClearFields();
             UserForm userForm = new UserForm();
             userForm.ShowDialog();
@@ -173,10 +183,8 @@ namespace ActivityOne
                             updateAttemptCommand.ExecuteNonQuery();
                         }
 
-                        // Check if the user has exceeded the maximum number of attempts (e.g., 3)
                         if (currentAttempt >= 3)
                         {
-                            // Lock the account (you should implement this logic)
                             LockAccount(username);
                             MessageBox.Show("Account locked due to too many incorrect login attempts.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -201,7 +209,6 @@ namespace ActivityOne
                 {
                     connection.Open();
 
-                    // Update the 'Activation' status to 'Locked' in the database
                     string lockAccountQuery = "UPDATE userlist SET Activation = 'Locked' WHERE Username = @Username";
 
                     using (MySqlCommand lockAccountCommand = new MySqlCommand(lockAccountQuery, connection))

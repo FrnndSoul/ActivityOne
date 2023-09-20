@@ -7,27 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using MySql.Data.MySqlClient;
 
 namespace ActivityOne
 {
-    public partial class UserForm : Form
+    public partial class UserForm : Form       
     {
-        private string tblUsername;
-        private string tblEmail;
-        private string tblName;
+        public string UserID { get; set; }
+        public string UserName { get; set; }
+        public string UserUsername { get; set; }
+        public string UserEmail { get; set; }
         public UserForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
-        }
-        public void SetProfile(string email, string username, string name)
-        {
-            tblEmail = email;
-            tblUsername = username;
-            tblName = name;
-            emailBox.Text = tblEmail;
-            usernameBox.Text = tblUsername;
-            nameBox.Text = tblName;
+            Load += UserForm_Load;
         }
         private void SignOut_Click(object sender, EventArgs e)
         {
@@ -36,6 +31,13 @@ namespace ActivityOne
             {
                 Close();
             }
+        }
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            idBox.Text = UserID;
+            nameBox.Text = UserName;
+            usernameBox.Text = UserUsername;
+            emailBox.Text = UserEmail;
         }
     }
 }
