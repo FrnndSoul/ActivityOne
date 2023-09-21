@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using MySql.Data.MySqlClient;
 
 namespace ActivityOne
 {
     public partial class ForgotPassword : Form
     {
+        public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
+        MySqlConnection connection = new MySqlConnection(mysqlcon);
+
         private AdminForm adminFormInstance;
         public ForgotPassword()
         {
@@ -25,58 +29,11 @@ namespace ActivityOne
             string inputUsername = Username.Text;
             string inputEmail = Email.Text;
 
+            //checks if username exist in the database
+            //checks if the email exists in the database
+            //checks if username and email matches a single user in the database
+            //prompt to change the password
 
-            AdminForm adminFormInstance = Application.OpenForms.OfType<AdminForm>().FirstOrDefault();
-            DataGridViewRow userRow = adminFormInstance.GetUserInfoRowByUsername(inputUsername);
-            
-            if (string.IsNullOrEmpty(inputUsername) || string.IsNullOrEmpty(inputEmail))
-            {
-                MessageBox.Show("Please provide both username and email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Username.Text = "";
-                Email.Text = "";
-                return;
-            }
-
-            if (userRow != null)
-            {
-                string storedEmail = userRow.Cells["tblEmail"].Value.ToString();
-                string activationStatus = userRow.Cells["tblActivation"].Value.ToString();
-
-                if (activationStatus != "Activated")
-                {
-                    MessageBox.Show("Your account is not active.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Username.Text = "";
-                    Email.Text = "";
-                    return;
-                }
-
-                if (inputEmail == storedEmail)
-                {
-                    string storedPassword = userRow.Cells["tblPassword"].Value.ToString();
-                    string storedUsername = userRow.Cells["tblUsername"].Value.ToString();
-
-                    MessageBox.Show("Email was sent to your registered email address. \n" +
-                        "You can now close this window", "EMAIL SENT",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Email email = new Email();
-                    email.SetCredentials(storedUsername, storedPassword);
-                    email.ShowDialog();
-
-                    Username.Text = "";
-                    Email.Text = "";
-                    Close();
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("please enter correct account info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("please enter correct account info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             Username.Text = "";
             Email.Text = "";
         }

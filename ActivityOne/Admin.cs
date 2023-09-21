@@ -133,7 +133,6 @@ namespace ActivityOne
             }
         }
 
-
         private void Backbtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -141,17 +140,6 @@ namespace ActivityOne
             {
                 this.Hide();
             }
-        }
-        public DataGridViewRow GetUserInfoRowByUsername(string username)
-        {
-            foreach (DataGridViewRow row in UserInfo.Rows)
-            {
-                if (row.Cells["tblUsername"].Value != null && row.Cells["tblUsername"].Value.ToString() == username)
-                {
-                    return row;
-                }
-            }
-            return null;
         }
     }
 }
