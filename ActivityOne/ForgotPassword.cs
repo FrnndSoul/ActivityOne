@@ -29,10 +29,33 @@ namespace ActivityOne
             string inputUsername = Username.Text;
             string inputEmail = Email.Text;
 
-            //checks if username exist in the database
-            //checks if the email exists in the database
-            //checks if username and email matches a single user in the database
-            //prompt to change the password
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                {
+                    connection.Open();
+                    string query = "SELECT Username, Email, ID FROM userlist WHERE Username = @Username AND Email = @Email";
+
+                    using (MySqlCommand checkUserCommand = new MySqlCommand(query, connection))
+                    {
+                        checkUserCommand.Parameters.AddWithValue("@Username", inputUsername);
+                        checkUserCommand.Parameters.AddWithValue("@Email", inputEmail);
+
+                        using (MySqlDataReader reader = checkUserCommand.ExecuteReader()) //is this a condition that the username and password matches?
+                        {
+                            if (reader.Read())
+                            {
+                                string dataID = reader["ID"].ToString();
+                                MessageBox.Show($"Password reset {inputUsername}, {inputEmail}, {dataID}");
+                                //set command to set new password here
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+
+            }
 
             Username.Text = "";
             Email.Text = "";

@@ -12,20 +12,10 @@ namespace ActivityOne
 {
     public partial class Email : Form
     {
-        private string userPassword;
-        private string userUsername; 
         public Email()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
-        }
-        public void SetCredentials(string username, string password)
-        {
-            userPassword = password;
-            userUsername = username;
-            usernameBox.Text = $" {username},";
-            passwordBox.Text = $" {password}";
-            Title.Text = DateTime.Now.ToString("MMMM dd ,yyyy HH:mm:ss");
         }
         private void Form1_Load(object sender, EventArgs e)
         {
