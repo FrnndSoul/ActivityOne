@@ -28,15 +28,13 @@ namespace ActivityOne
         {
             string inputUsername = Username.Text;
             string inputEmail = Email.Text;
-            
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
                     connection.Open();
 
-                    string query = "SELECT Username, Email, ID FROM userlist WHERE Username = @Username AND Email = @Email";
+                    string query = "SELECT Username, Email, ID, Activation FROM userlist WHERE Username = @Username AND Email = @Email";
 
                     using (MySqlCommand checkUserCommand = new MySqlCommand(query, connection))
                     {
@@ -47,11 +45,16 @@ namespace ActivityOne
                         {
                             if (reader.Read())
                             {
-                                string dataID = reader["ID"].ToString();
-                                MessageBox.Show($"Password reset for {inputUsername}, {inputEmail}, {dataID}");
+                                string activationStatus = reader["Activation"].ToString();
+                                if (!string.Equals(activationStatus, "Active", StringComparison.OrdinalIgnoreCase)) {
+                                    MessageBox.Show("ACCOUNT NOT YET ACTIVE!", "WARNING!", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                                    return;
+                                }
+                                    string dataID = reader["ID"].ToString();
                                 Email email = new Email();
                                 email.Show();
                                 email.SetUsername(inputUsername, inputEmail, dataID);
+                                this.Close();
                             }
                             else
                             {
@@ -65,7 +68,6 @@ namespace ActivityOne
             {
                 MessageBox.Show(ex.Message, "ERROR");
             }
-
             Username.Text = "";
             Email.Text = "";
         }

@@ -68,13 +68,10 @@ namespace ActivityOne
         }
         private void Activate_Click(object sender, EventArgs e)
         {
-            // Get the selected row index
             int selectedRowIndex = UserInfo.SelectedCells[0].RowIndex;
 
-            // Check if the selected row index is valid
             if (selectedRowIndex >= 0 && selectedRowIndex < UserInfo.Rows.Count)
             {
-                // Get the username from the selected row
                 string selectedUsername = UserInfo.Rows[selectedRowIndex].Cells["Username"].Value.ToString();
 
                 try
@@ -82,8 +79,6 @@ namespace ActivityOne
                     using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                     {
                         connection.Open();
-
-                        // Check if the selected username exists in the database
                         string checkUsernameQuery = "SELECT Activation FROM userlist WHERE Username = @Username";
 
                         using (MySqlCommand checkUsernameCommand = new MySqlCommand(checkUsernameQuery, connection))
@@ -99,7 +94,6 @@ namespace ActivityOne
                             }
                             else
                             {
-                                // Update the 'Activation' status to 'Active' in the database for the selected username
                                 string activateAccountQuery = "UPDATE userlist SET Activation = 'Active' WHERE Username = @Username";
 
                                 using (MySqlCommand activateAccountCommand = new MySqlCommand(activateAccountQuery, connection))

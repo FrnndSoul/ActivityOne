@@ -111,16 +111,19 @@ namespace ActivityOne
                                     {
                                         MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         HandleIncorrectPassword(username);
+                                        ClearFields();
                                     }
                                 }
                                 else
                                 {
                                     MessageBox.Show("Account is not activated", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    ClearFields();
                                 }
                             }
                             else
                             {
                                 MessageBox.Show("Username not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                ClearFields();
                             }
                         }
                     }
@@ -129,6 +132,7 @@ namespace ActivityOne
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClearFields();
             }
         }
 
@@ -149,7 +153,6 @@ namespace ActivityOne
             UserForm userForm = new UserForm();
             userForm.LoadData(id, name, username, email);
             userForm.ShowDialog();
-
         }
         private void HandleIncorrectPassword(string username)
         {

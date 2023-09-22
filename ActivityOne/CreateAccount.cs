@@ -133,11 +133,11 @@ namespace ActivityOne
 
             string ID = RandomNumberGenerator.GenerateRandomNumber();   //generated ID number
                 //MessageBox.Show(ID);
-            string hashedPassword = HashHelper.HashString(password);    //hashed the pass
+            string hashedPassword = HashHelper.HashString(password);    //Emilp0g!
                 //MessageBox.Show("hashed: " + hashedPassword);
-            string fixedSalt = HashHelper_Salt.HashString_Salt("420" + password + "69");    //used a fixed salt
+            string fixedSalt = HashHelper_Salt.HashString_Salt("420" + password + "69");    //420Emilp0g!69
                 //MessageBox.Show("fixed salt: " + fixedSalt);
-            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(password + ID);    //used per user salt
+            string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(password + ID);    //Emip0g!1999
                 //MessageBox.Show("per user salt: " + perUserSalt);
             try
             {
@@ -195,7 +195,7 @@ namespace ActivityOne
         {
             if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Space)
             {
-                e.Handled = true; // Suppress the key press
+                e.Handled = true;
             }
         }
         private bool IsPasswordValid(string password)
