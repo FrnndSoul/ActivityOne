@@ -32,9 +32,7 @@ namespace ActivityOne
                 connection.Open();
                 string sql = "SELECT * FROM `userlist`";
                 MySqlCommand cmd = new MySqlCommand(sql, connection);
-
                 System.Data.DataTable dataTable = new System.Data.DataTable();
-
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                 {
                     adapter.Fill(dataTable);
