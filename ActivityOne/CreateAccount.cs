@@ -161,7 +161,7 @@ namespace ActivityOne
                         execute.ExecuteNonQuery();
                     }
                 }
-                MessageBox.Show("Awaiting admin approval", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Awaiting admin approval. \nID number:{ID}", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

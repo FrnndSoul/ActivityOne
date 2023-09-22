@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -102,9 +103,7 @@ namespace ActivityOne
 
                                     if (hashedPassword == hashedPasswordFromDB)
                                     {
-                                        UserForm form = new UserForm();
-                                        form.LoadData(DID, DName, DUsername, DEmail);
-                                        ShowUserForm();
+                                        ShowUserForm(DID, DName, DUsername, DEmail);
                                         ClearFields();
                                         return;
                                     }
@@ -143,13 +142,14 @@ namespace ActivityOne
         {
             createAccountInstance.ShowDialog();
         }
-        private void ShowUserForm()
+        private void ShowUserForm(string id, string name, string username, string email)
         {
-
             MessageBox.Show("Login success!", "WELCOME", MessageBoxButtons.OK);
             ClearFields();
             UserForm userForm = new UserForm();
+            userForm.LoadData(id, name, username, email);
             userForm.ShowDialog();
+
         }
         private void HandleIncorrectPassword(string username)
         {
