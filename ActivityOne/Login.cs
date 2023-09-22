@@ -32,25 +32,19 @@ namespace ActivityOne
                 }
             }
         }
-
         public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
-
         private AdminForm adminFormInstance;
         private CreateAccount createAccountInstance;
         public LoginForm()
         {
             InitializeComponent();
-
             FormBorderStyle = FormBorderStyle.FixedSingle;
-
             Password.PasswordChar = '*';
             AcceptButton = SigninButton;
-
             SigninButton.FlatAppearance.BorderSize = 0;
             Forgotbtn.FlatAppearance.BorderSize = 0;
             Createbtn.FlatAppearance.BorderSize = 0;
-
             adminFormInstance = new AdminForm();
             createAccountInstance = new CreateAccount();
         }        
@@ -62,7 +56,6 @@ namespace ActivityOne
         {
             string username = Username.Text;
             string password = Password.Text;
-
             if (username == "admin" && password == "admin123")
             {
                 ShowAdminForm();
@@ -73,7 +66,6 @@ namespace ActivityOne
                 ShowErrorMessage("Please provide both username and password.");
                 return;
             }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
@@ -135,7 +127,6 @@ namespace ActivityOne
                 ClearFields();
             }
         }
-
         private void ShowAdminForm()
         {
             MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
@@ -200,7 +191,6 @@ namespace ActivityOne
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void LockAccount(string username)
         {
             try
@@ -208,13 +198,10 @@ namespace ActivityOne
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
                     connection.Open();
-
                     string lockAccountQuery = "UPDATE userlist SET Activation = 'Locked' WHERE Username = @Username";
-
                     using (MySqlCommand lockAccountCommand = new MySqlCommand(lockAccountQuery, connection))
                     {
                         lockAccountCommand.Parameters.AddWithValue("@Username", username);
-
                         lockAccountCommand.ExecuteNonQuery();
                     }
                 }
@@ -224,7 +211,6 @@ namespace ActivityOne
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void ShowErrorMessage(string message)
         {
             MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

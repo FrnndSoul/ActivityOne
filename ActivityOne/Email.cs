@@ -18,7 +18,6 @@ namespace ActivityOne
     {
         public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
-
         public class HashHelper
         {
             public static string HashString(string input)
@@ -26,11 +25,8 @@ namespace ActivityOne
                 using (SHA256 sha256 = SHA256.Create())
                 {
                     byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-
                     byte[] hashBytes = sha256.ComputeHash(inputBytes);
-
                     string hashedString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
                     return hashedString;
                 }
             }
@@ -42,11 +38,8 @@ namespace ActivityOne
                 using (SHA256 sha256 = SHA256.Create())
                 {
                     byte[] inputBytes_Salt = Encoding.UTF8.GetBytes(input_Salt);
-
                     byte[] hashBytes_Salt = sha256.ComputeHash(inputBytes_Salt);
-
                     string hashedString_Salt = BitConverter.ToString(hashBytes_Salt).Replace("-", "").ToLower();
-
                     return hashedString_Salt;
                 }
             }
@@ -58,25 +51,16 @@ namespace ActivityOne
                 using (SHA256 sha256 = SHA256.Create())
                 {
                     byte[] inputBytes_SaltperUser = Encoding.UTF8.GetBytes(input_SaltperUser);
-
                     byte[] hashBytes_SaltperUser = sha256.ComputeHash(inputBytes_SaltperUser);
-
                     string hashedString_SaltperUser = BitConverter.ToString(hashBytes_SaltperUser).Replace("-", "").ToLower();
-
                     return hashedString_SaltperUser;
                 }
             }
         }
-
         public Email()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
-        }
-        
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
         public void SetUsername(string username, string email, string ID)
         {
@@ -86,49 +70,39 @@ namespace ActivityOne
         {
             string username = usernameBox.Text;
             string password = passwordBox.Text;
-
             if (!IsPasswordValid(password))
             {
                 MessageBox.Show("Password must have at least 8 characters, \nwith uppercase and lowercase letters, \nand at least one special character.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
                     connection.Open();
-
                     string getID = "SELECT ID FROM userlist WHERE Username = @Username";
-
                     using (MySqlCommand checkIDcmd = new MySqlCommand(getID, connection))
                     {
                         checkIDcmd.Parameters.AddWithValue("@Username", username);
-
                         using (MySqlDataReader reader = checkIDcmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
                                 string ID = reader["ID"].ToString();
                                 reader.Close(); // Close the reader before executing the next query
-
                                 string hashedPassword = HashHelper.HashString(password);
                                 string fixedSalt = HashHelper_Salt.HashString_Salt("420" + password + "69");
                                 string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(password + ID);
-
                                 string setPass = "UPDATE `userlist` " +
                                     "SET `PassHash` = @hashedPassword, `SaltHash` = @fixedSalt, `UserSalt` = @perUserSalt " +
                                     "WHERE Username = @username;";
-
                                 using (MySqlCommand setPasscmd = new MySqlCommand(setPass, connection))
                                 {
                                     setPasscmd.Parameters.AddWithValue("@hashedPassword", hashedPassword);
                                     setPasscmd.Parameters.AddWithValue("@fixedSalt", fixedSalt);
                                     setPasscmd.Parameters.AddWithValue("@perUserSalt", perUserSalt);
                                     setPasscmd.Parameters.AddWithValue("@username", username);
-
                                     int rowsAffected = setPasscmd.ExecuteNonQuery();
-
                                     if (rowsAffected > 0)
                                     {
                                         MessageBox.Show("Password updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,7 +142,6 @@ namespace ActivityOne
         {
             if (password.Length < 8)
                 return false;
-
             bool hasUppercase = false;
             bool hasLowercase = false;
             bool hasSpecialCharacter = false;

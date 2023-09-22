@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Text;
 using MySql.Data.MySqlClient;
-
 public class HashHelper
 {
     public static string HashString(string input)
@@ -13,11 +12,8 @@ public class HashHelper
         using (SHA256 sha256 = SHA256.Create())
         {
             byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-
             byte[] hashBytes = sha256.ComputeHash(inputBytes);
-
             string hashedString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
             return hashedString;
         }
     }
@@ -29,11 +25,8 @@ public class HashHelper_Salt
         using (SHA256 sha256 = SHA256.Create())
         {
             byte[] inputBytes_Salt = Encoding.UTF8.GetBytes(input_Salt);
-
             byte[] hashBytes_Salt = sha256.ComputeHash(inputBytes_Salt);
-
             string hashedString_Salt = BitConverter.ToString(hashBytes_Salt).Replace("-", "").ToLower();
-
             return hashedString_Salt;
         }
     }
@@ -45,11 +38,8 @@ public class HashHelper_SaltperUser
         using (SHA256 sha256 = SHA256.Create())
         {
             byte[] inputBytes_SaltperUser = Encoding.UTF8.GetBytes(input_SaltperUser);
-
             byte[] hashBytes_SaltperUser = sha256.ComputeHash(inputBytes_SaltperUser);
-
             string hashedString_SaltperUser = BitConverter.ToString(hashBytes_SaltperUser).Replace("-", "").ToLower();
-
             return hashedString_SaltperUser;
         }
     }
@@ -99,7 +89,6 @@ namespace ActivityOne
             string username = Username.Text;
             string email = Email.Text;
             string password = PasswordBox.Text;
-
             if (username == "admin" || username == "Admin")
             {
                 MessageBox.Show("Cannot register with admin as a username","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Stop);
@@ -108,14 +97,12 @@ namespace ActivityOne
             string maskedPassword = password.Length >= 4
                 ? password.Substring(0, 2) + new string('*', password.Length - 4) + password.Substring(password.Length - 2)
     :           new string('*', password.Length);
-
             DialogResult result = MessageBox.Show("Do you want to register with these information?!" +
                 $"\n\nName: {name}" +
                 $"\nUsername: {username}" +
                 $"\nEmail: {email}" +
                 $"\nPassword: {maskedPassword}" +
                 $"\n\nChanges on the account cannot be done!", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
             if (result == DialogResult.No)
             {
                 return;
@@ -130,24 +117,17 @@ namespace ActivityOne
                 MessageBox.Show("Password must have at least 8 characters, \nwith uppercase and lowercase letters, \nand at least one special character.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             string ID = RandomNumberGenerator.GenerateRandomNumber();   //generated ID number
-                //MessageBox.Show(ID);
             string hashedPassword = HashHelper.HashString(password);    //Emilp0g!
-                //MessageBox.Show("hashed: " + hashedPassword);
             string fixedSalt = HashHelper_Salt.HashString_Salt("420" + password + "69");    //420Emilp0g!69
-                //MessageBox.Show("fixed salt: " + fixedSalt);
             string perUserSalt = HashHelper_SaltperUser.HashString_SaltperUser(password + ID);    //Emip0g!1999
-                //MessageBox.Show("per user salt: " + perUserSalt);
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
                     connection.Open();
-
                     string query = "INSERT INTO `userlist`(`ID`, `Name`, `Email`, `Username`, `Activation`, `Attempt`, `PassHash`, `SaltHash`, `UserSalt`)" +
                                    "VALUES (@ID, @Name, @Email, @Username, 'Inactive', 0, @PassHash, @SaltHash, @UserSalt)";
-
                     using (MySqlCommand execute = new MySqlCommand(query, connection))
                     {
                         execute.Parameters.AddWithValue("@ID", ID);
@@ -157,7 +137,6 @@ namespace ActivityOne
                         execute.Parameters.AddWithValue("@PassHash", hashedPassword);
                         execute.Parameters.AddWithValue("@SaltHash", fixedSalt);
                         execute.Parameters.AddWithValue("@UserSalt", perUserSalt);
-
                         execute.ExecuteNonQuery();
                     }
                 }
@@ -202,11 +181,9 @@ namespace ActivityOne
         {
             if (password.Length < 8)
                 return false;
-
             bool hasUppercase = false;
             bool hasLowercase = false;
             bool hasSpecialCharacter = false;
-
             foreach (char c in password)
             {
                 if (char.IsUpper(c))
