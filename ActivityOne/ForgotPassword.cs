@@ -28,12 +28,14 @@ namespace ActivityOne
         {
             string inputUsername = Username.Text;
             string inputEmail = Email.Text;
+            
 
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
                     connection.Open();
+
                     string query = "SELECT Username, Email, ID FROM userlist WHERE Username = @Username AND Email = @Email";
 
                     using (MySqlCommand checkUserCommand = new MySqlCommand(query, connection))
@@ -41,20 +43,27 @@ namespace ActivityOne
                         checkUserCommand.Parameters.AddWithValue("@Username", inputUsername);
                         checkUserCommand.Parameters.AddWithValue("@Email", inputEmail);
 
-                        using (MySqlDataReader reader = checkUserCommand.ExecuteReader()) //is this a condition that the username and password matches?
+                        using (MySqlDataReader reader = checkUserCommand.ExecuteReader())
                         {
                             if (reader.Read())
                             {
                                 string dataID = reader["ID"].ToString();
-                                MessageBox.Show($"Password reset {inputUsername}, {inputEmail}, {dataID}");
-                                //set command to set new password here
+                                MessageBox.Show($"Password reset for {inputUsername}, {inputEmail}, {dataID}");
+                                Email email = new Email();
+                                email.Show();
+                                email.SetUsername(inputUsername, inputEmail, dataID);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Username and email not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
                 }
             }
-            catch (Exception ex) {
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR");
             }
 
             Username.Text = "";

@@ -29,24 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Email));
-            this.Back = new System.Windows.Forms.Button();
+            this.Set = new System.Windows.Forms.Button();
             this.usernameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.Title = new System.Windows.Forms.TextBox();
+            this.Back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Back
+            // Set
             // 
-            this.Back.Location = new System.Drawing.Point(696, 367);
-            this.Back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(133, 39);
-            this.Back.TabIndex = 0;
-            this.Back.Text = "Close";
-            this.Back.UseVisualStyleBackColor = true;
-            this.Back.Click += new System.EventHandler(this.Back_Click);
+            this.Set.Location = new System.Drawing.Point(576, 227);
+            this.Set.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Set.Name = "Set";
+            this.Set.Size = new System.Drawing.Size(161, 30);
+            this.Set.TabIndex = 0;
+            this.Set.Text = "Set New Password";
+            this.Set.UseVisualStyleBackColor = true;
+            this.Set.Click += new System.EventHandler(this.Set_Click);
             // 
             // usernameBox
             // 
@@ -75,22 +76,22 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(93, 173);
+            this.label2.Location = new System.Drawing.Point(93, 181);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(634, 200);
+            this.label2.Size = new System.Drawing.Size(568, 200);
             this.label2.TabIndex = 4;
             this.label2.Text = resources.GetString("label2.Text");
             // 
             // passwordBox
             // 
             this.passwordBox.BackColor = System.Drawing.Color.White;
-            this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordBox.Location = new System.Drawing.Point(97, 219);
+            this.passwordBox.Location = new System.Drawing.Point(97, 227);
             this.passwordBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordBox.Name = "passwordBox";
-            this.passwordBox.ReadOnly = true;
-            this.passwordBox.Size = new System.Drawing.Size(565, 23);
+            this.passwordBox.PasswordChar = '*';
+            this.passwordBox.Size = new System.Drawing.Size(473, 30);
             this.passwordBox.TabIndex = 5;
             // 
             // Title
@@ -107,6 +108,17 @@
             this.Title.Size = new System.Drawing.Size(189, 20);
             this.Title.TabIndex = 6;
             // 
+            // Back
+            // 
+            this.Back.Location = new System.Drawing.Point(687, 380);
+            this.Back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(161, 30);
+            this.Back.TabIndex = 7;
+            this.Back.Text = "Back";
+            this.Back.UseVisualStyleBackColor = true;
+            this.Back.Click += new System.EventHandler(this.Back_Click_1);
+            // 
             // Email
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -116,6 +128,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(860, 421);
             this.Controls.Add(this.Back);
+            this.Controls.Add(this.Set);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.label2);
@@ -135,11 +148,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Button Set;
         private System.Windows.Forms.TextBox usernameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.TextBox Title;
+        private System.Windows.Forms.Button Back;
     }
 }
