@@ -23,7 +23,7 @@ namespace ActivityOne
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            //LoadData();
+            
         }
         public void LoadData()
         {
@@ -109,6 +109,18 @@ namespace ActivityOne
             DialogResult result = MessageBox.Show("Do you want to close this window?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                this.Hide();
+            }
+        }
+
+        private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                // Prevent the form from actually closing
+                e.Cancel = true;
+
+                // Hide the form instead
                 this.Hide();
             }
         }
