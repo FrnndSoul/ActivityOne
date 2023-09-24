@@ -23,7 +23,7 @@ namespace ActivityOne
         }
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            LoadData();
+            //LoadData();
         }
         public void LoadData()
         {

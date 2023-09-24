@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Text;
 using MySql.Data.MySqlClient;
+using ActivityOne;
+
 public class HashHelper
 {
     public static string HashString(string input)
@@ -71,6 +73,7 @@ namespace ActivityOne
     {
         public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
+
         public CreateAccount()
         {
             InitializeComponent();
@@ -89,7 +92,7 @@ namespace ActivityOne
             string username = Username.Text;
             string email = Email.Text;
             string password = PasswordBox.Text;
-            if (username == "admin" || username == "Admin")
+            if (username.ToLower() == "admin")
             {
                 MessageBox.Show("Cannot register with admin as a username","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Stop);
                 return;
@@ -141,6 +144,14 @@ namespace ActivityOne
                     }
                 }
                 MessageBox.Show($"Awaiting admin approval. \nID number:{ID}", "Information!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                foreach (Form openForm in Application.OpenForms)
+                {
+                    if (openForm is AdminForm adminForm)
+                    {
+                        adminForm.LoadData();
+                        break;
+                    }
+                }
             }
             catch (Exception ex)
             {

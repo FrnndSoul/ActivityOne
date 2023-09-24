@@ -131,7 +131,12 @@ namespace ActivityOne
         {
             MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
             adminFormInstance.Show();
+            adminFormInstance.LoadData();
             ClearFields();
+        }
+        public void refresh()
+        {
+            adminFormInstance.LoadData();
         }
         private void ShowCreateAccount()
         {
