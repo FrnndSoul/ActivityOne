@@ -33,6 +33,8 @@
             this.UserInfo = new System.Windows.Forms.DataGridView();
             this.Backbtn = new System.Windows.Forms.Button();
             this.Activate = new System.Windows.Forms.Button();
+            this.Search = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +42,8 @@
             // 
             this.UserInfo.AllowUserToAddRows = false;
             this.UserInfo.AllowUserToDeleteRows = false;
-            this.UserInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UserInfo.ColumnHeadersHeight = 29;
+            this.UserInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -49,13 +52,13 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.UserInfo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.UserInfo.Location = new System.Drawing.Point(13, 13);
+            this.UserInfo.Location = new System.Drawing.Point(12, 40);
             this.UserInfo.Name = "UserInfo";
             this.UserInfo.ReadOnly = true;
             this.UserInfo.RowHeadersWidth = 51;
             this.UserInfo.RowTemplate.Height = 24;
             this.UserInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.UserInfo.Size = new System.Drawing.Size(775, 387);
+            this.UserInfo.Size = new System.Drawing.Size(776, 360);
             this.UserInfo.TabIndex = 0;
             // 
             // Backbtn
@@ -80,11 +83,30 @@
             this.Activate.UseVisualStyleBackColor = true;
             this.Activate.Click += new System.EventHandler(this.Activate_Click);
             // 
+            // Search
+            // 
+            this.Search.Location = new System.Drawing.Point(84, 12);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(704, 22);
+            this.Search.TabIndex = 4;
+            this.Search.TextChanged += new System.EventHandler(this.Search_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "SEARCH:";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Search);
             this.Controls.Add(this.Activate);
             this.Controls.Add(this.Backbtn);
             this.Controls.Add(this.UserInfo);
@@ -96,6 +118,7 @@
             this.Load += new System.EventHandler(this.AdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -104,5 +127,7 @@
         private System.Windows.Forms.DataGridView UserInfo;
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.Button Activate;
+        private System.Windows.Forms.TextBox Search;
+        private System.Windows.Forms.Label label1;
     }
 }

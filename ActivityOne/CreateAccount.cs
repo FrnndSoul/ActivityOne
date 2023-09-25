@@ -7,65 +7,7 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using ActivityOne;
 
-public class HashHelper
-{
-    public static string HashString(string input)
-    {
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
-            byte[] hashBytes = sha256.ComputeHash(inputBytes);
-            string hashedString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-            return hashedString;
-        }
-    }
-}
-public class HashHelper_Salt
-{
-    public static string HashString_Salt(string input_Salt)
-    {
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            byte[] inputBytes_Salt = Encoding.UTF8.GetBytes(input_Salt);
-            byte[] hashBytes_Salt = sha256.ComputeHash(inputBytes_Salt);
-            string hashedString_Salt = BitConverter.ToString(hashBytes_Salt).Replace("-", "").ToLower();
-            return hashedString_Salt;
-        }
-    }
-}
-public class HashHelper_SaltperUser
-{
-    public static string HashString_SaltperUser(string input_SaltperUser)
-    {
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            byte[] inputBytes_SaltperUser = Encoding.UTF8.GetBytes(input_SaltperUser);
-            byte[] hashBytes_SaltperUser = sha256.ComputeHash(inputBytes_SaltperUser);
-            string hashedString_SaltperUser = BitConverter.ToString(hashBytes_SaltperUser).Replace("-", "").ToLower();
-            return hashedString_SaltperUser;
-        }
-    }
-}
-public class RandomNumberGenerator
-{
-    private static Random random = new Random();
 
-    public static string GenerateRandomNumber()
-    {
-        var digits = Enumerable.Range(0, 10).ToList();
-
-        for (int i = 0; i < digits.Count; i++)
-        {
-            int j = random.Next(i, digits.Count);
-            int temp = digits[i];
-            digits[i] = digits[j];
-            digits[j] = temp;
-        }
-        string randomNumber = string.Join("", digits.Take(4));
-
-        return randomNumber;
-    }
-}
 
 namespace ActivityOne
 {
@@ -205,6 +147,64 @@ namespace ActivityOne
                     hasSpecialCharacter = true;
             }
             return hasUppercase && hasLowercase && hasSpecialCharacter;
+        }
+    }
+    public class HashHelper
+    {
+        public static string HashString(string input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+                byte[] hashBytes = sha256.ComputeHash(inputBytes);
+                string hashedString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+                return hashedString;
+            }
+        }
+    }
+    public class HashHelper_Salt
+    {
+        public static string HashString_Salt(string input_Salt)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] inputBytes_Salt = Encoding.UTF8.GetBytes(input_Salt);
+                byte[] hashBytes_Salt = sha256.ComputeHash(inputBytes_Salt);
+                string hashedString_Salt = BitConverter.ToString(hashBytes_Salt).Replace("-", "").ToLower();
+                return hashedString_Salt;
+            }
+        }
+    }
+    public class HashHelper_SaltperUser
+    {
+        public static string HashString_SaltperUser(string input_SaltperUser)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] inputBytes_SaltperUser = Encoding.UTF8.GetBytes(input_SaltperUser);
+                byte[] hashBytes_SaltperUser = sha256.ComputeHash(inputBytes_SaltperUser);
+                string hashedString_SaltperUser = BitConverter.ToString(hashBytes_SaltperUser).Replace("-", "").ToLower();
+                return hashedString_SaltperUser;
+            }
+        }
+    }
+    public class RandomNumberGenerator
+    {
+        private static Random random = new Random();
+        public static string GenerateRandomNumber()
+        {
+            var digits = Enumerable.Range(0, 10).ToList();
+
+            for (int i = 0; i < digits.Count; i++)
+            {
+                int j = random.Next(i, digits.Count);
+                int temp = digits[i];
+                digits[i] = digits[j];
+                digits[j] = temp;
+            }
+            string randomNumber = string.Join("", digits.Take(4));
+
+            return randomNumber;
         }
     }
 }
