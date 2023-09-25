@@ -157,5 +157,15 @@ namespace ActivityOne
             }
             return hasUppercase && hasLowercase && hasSpecialCharacter;
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            passwordBox.PasswordChar = checkBox1.Checked ? '\0' : '*';
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

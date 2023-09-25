@@ -95,6 +95,7 @@ namespace ActivityOne
 
                                     if (hashedPassword == hashedPasswordFromDB)
                                     {
+                                        ResetPUK(DUsername);
                                         ShowUserForm(DID, DName, DUsername, DEmail);
                                         ClearFields();
                                         return;
@@ -178,7 +179,6 @@ namespace ActivityOne
 
                             updateAttemptCommand.ExecuteNonQuery();
                         }
-
                         if (currentAttempt >= 3)
                         {
                             LockAccount(username);
@@ -187,6 +187,39 @@ namespace ActivityOne
                         else
                         {
                             MessageBox.Show($"Incorrect password attempt {currentAttempt} out of 3.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ResetPUK(string username)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                {
+                    connection.Open();
+
+                    string getAttemptQuery = "SELECT Attempt FROM userlist WHERE Username = @Username";
+
+                    using (MySqlCommand getAttemptCommand = new MySqlCommand(getAttemptQuery, connection))
+                    {
+                        getAttemptCommand.Parameters.AddWithValue("@Username", username);
+
+                        int currentAttempt = 0;
+
+                        string updateAttemptQuery = "UPDATE userlist SET Attempt = @Attempt WHERE Username = @Username";
+
+                        using (MySqlCommand updateAttemptCommand = new MySqlCommand(updateAttemptQuery, connection))
+                        {
+                            updateAttemptCommand.Parameters.AddWithValue("@Attempt", currentAttempt);
+                            updateAttemptCommand.Parameters.AddWithValue("@Username", username);
+
+                            updateAttemptCommand.ExecuteNonQuery();
                         }
                     }
                 }
@@ -225,6 +258,7 @@ namespace ActivityOne
         {
             Username.Text = "";
             Password.Text = "";
+            Showpass.CheckState = CheckState.Unchecked;
         }
         private void Createbtn_Click(object sender, EventArgs e)
         {

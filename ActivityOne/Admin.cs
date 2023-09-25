@@ -67,6 +67,8 @@ namespace ActivityOne
                 UserInfo.Columns[6].Visible = false; //hashedpass
                 UserInfo.Columns[7].Visible = false; //fixedsalt
                 UserInfo.Columns[8].Visible = false; //perusersalt
+                UserInfo.Columns[9].Visible = false; //photodata
+                UserInfo.Columns[10].Visible = false; //photoname
             }
             catch (Exception e)
             {
@@ -173,6 +175,8 @@ namespace ActivityOne
                     UserInfo.Columns[6].Visible = false; //hashedpass
                     UserInfo.Columns[7].Visible = false; //fixedsalt
                     UserInfo.Columns[8].Visible = false; //perusersalt
+                    UserInfo.Columns[9].Visible = false; //photodata
+                    UserInfo.Columns[10].Visible = false; //photoname
                 }
                 catch (Exception ex)
                 {

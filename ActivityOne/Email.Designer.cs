@@ -31,16 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Email));
             this.Set = new System.Windows.Forms.Button();
             this.usernameBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.Title = new System.Windows.Forms.TextBox();
             this.Back = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Set
             // 
-            this.Set.Location = new System.Drawing.Point(576, 227);
+            this.Set.Location = new System.Drawing.Point(353, 380);
             this.Set.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Set.Name = "Set";
             this.Set.Size = new System.Drawing.Size(161, 30);
@@ -62,36 +63,16 @@
             this.usernameBox.Size = new System.Drawing.Size(488, 20);
             this.usernameBox.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Hello there,";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(93, 181);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(568, 200);
-            this.label2.TabIndex = 4;
-            this.label2.Text = resources.GetString("label2.Text");
-            // 
             // passwordBox
             // 
             this.passwordBox.BackColor = System.Drawing.Color.White;
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordBox.Location = new System.Drawing.Point(97, 227);
+            this.passwordBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.passwordBox.Location = new System.Drawing.Point(117, 248);
             this.passwordBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
-            this.passwordBox.Size = new System.Drawing.Size(473, 30);
+            this.passwordBox.Size = new System.Drawing.Size(564, 34);
             this.passwordBox.TabIndex = 5;
             // 
             // Title
@@ -110,7 +91,7 @@
             // 
             // Back
             // 
-            this.Back.Location = new System.Drawing.Point(576, 351);
+            this.Back.Location = new System.Drawing.Point(520, 380);
             this.Back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(161, 30);
@@ -119,6 +100,37 @@
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click_1);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(113, 160);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Hello there,";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(113, 190);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(568, 220);
+            this.label2.TabIndex = 4;
+            this.label2.Text = resources.GetString("label2.Text");
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(657, 255);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(18, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Email
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -126,7 +138,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::ActivityOne.Properties.Resources.fin1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(860, 421);
+            this.ClientSize = new System.Drawing.Size(860, 420);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.Set);
             this.Controls.Add(this.Title);
@@ -149,10 +162,11 @@
 
         private System.Windows.Forms.Button Set;
         private System.Windows.Forms.TextBox usernameBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.TextBox Title;
         private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
