@@ -49,7 +49,6 @@ namespace ActivityOne
                 }
             }
         }
-
         private byte[] GetImageDataByUsername(string username)
         {
             using (MySqlConnection connection = new MySqlConnection(mysqlcon))
@@ -68,7 +67,6 @@ namespace ActivityOne
             }
             return null;
         }
-
         private void UPLOAD_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -91,9 +89,7 @@ namespace ActivityOne
                 MessageBox.Show("Please select an image first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             string imageName = Path.GetFileName(selectedImagePath);
-
             using (MySqlConnection connection = new MySqlConnection(mysqlcon))
             {
                 try
@@ -126,10 +122,7 @@ namespace ActivityOne
                 {
                     MessageBox.Show(ex.Message, "ERROR");
                 }
-
-
             }
         }
-
     }
 }
