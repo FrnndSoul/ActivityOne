@@ -81,14 +81,7 @@ namespace ActivityOne
                     pictureBox1.Image = Image.FromFile(selectedImagePath);
                 }
             }
-        }
-        private void Save_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(selectedImagePath))
-            {
-                MessageBox.Show("Please select an image first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
             string imageName = Path.GetFileName(selectedImagePath);
             using (MySqlConnection connection = new MySqlConnection(mysqlcon))
             {
@@ -107,15 +100,6 @@ namespace ActivityOne
                         cmd.Parameters.AddWithValue("@Username", user);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Image updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Image update failed. No matching user found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
                     }
                 }
                 catch (Exception ex)
