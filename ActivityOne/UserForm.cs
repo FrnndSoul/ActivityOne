@@ -79,13 +79,28 @@ namespace ActivityOne
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     selectedImagePath = openFileDialog.FileName;
-
                     imageData = File.ReadAllBytes(selectedImagePath);
-
                     pictureBox1.Image = Image.FromFile(selectedImagePath);
                 }
             }
+            DialogResult result = MessageBox.Show("Do you want to use this as your profile photo?","Confirmation",MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                string DUsername = usernameBox.Text;
+                byte[] imageData = GetImageDataByUsername(DUsername);
 
+                if (imageData != null && imageData.Length > 0)
+                {
+                    using (MemoryStream stream = new MemoryStream(imageData))
+                    {
+                        pictureBox1.Image = Image.FromStream(stream);
+                    }
+                } else
+                {
+                    pictureBox1.Image = ActivityOne.Properties.Resources.download;
+                    return;
+                }
+            }
             string imageName = Path.GetFileName(selectedImagePath);
             using (MySqlConnection connection = new MySqlConnection(mysqlcon))
             {
