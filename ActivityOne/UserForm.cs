@@ -48,6 +48,10 @@ namespace ActivityOne
                     pictureBox1.Image = Image.FromStream(stream);
                 }
             }
+            System.Drawing.Drawing2D.GraphicsPath obj = new System.Drawing.Drawing2D.GraphicsPath();
+            obj.AddEllipse(0, 0,pictureBox1.Width,pictureBox1.Height);
+            Region rg = new Region(obj);
+            pictureBox1.Region = rg;
         }
         private byte[] GetImageDataByUsername(string username)
         {
