@@ -84,7 +84,34 @@ namespace ActivityOne
                 }
             }
             DialogResult result = MessageBox.Show("Do you want to use this as your profile photo?","Confirmation",MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
+            if (result == DialogResult.Yes)
+            {
+                string imageName = Path.GetFileName(selectedImagePath);
+                using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        string updateQuery = "UPDATE `userlist` SET PhotoData = @photoData, PhotoName = @photoName " +
+                                            "WHERE Username = @Username";
+
+                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
+                        {
+                            string user = usernameBox.Text;
+                            cmd.Parameters.AddWithValue("@photoData", imageData);
+                            cmd.Parameters.AddWithValue("@photoName", imageName);
+                            cmd.Parameters.AddWithValue("@Username", user);
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "ERROR");
+                    }
+                }
+            } else
             {
                 string DUsername = usernameBox.Text;
                 byte[] imageData = GetImageDataByUsername(DUsername);
@@ -95,37 +122,14 @@ namespace ActivityOne
                     {
                         pictureBox1.Image = Image.FromStream(stream);
                     }
-                } else
+                }
+                else
                 {
                     pictureBox1.Image = ActivityOne.Properties.Resources.download;
                     return;
                 }
             }
-            string imageName = Path.GetFileName(selectedImagePath);
-            using (MySqlConnection connection = new MySqlConnection(mysqlcon))
-            {
-                try
-                {
-                    connection.Open();
-
-                    string updateQuery = "UPDATE `userlist` SET PhotoData = @photoData, PhotoName = @photoName " +
-                                        "WHERE Username = @Username";
-
-                    using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
-                    {
-                        string user = usernameBox.Text;
-                        cmd.Parameters.AddWithValue("@photoData", imageData);
-                        cmd.Parameters.AddWithValue("@photoName", imageName);
-                        cmd.Parameters.AddWithValue("@Username", user);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "ERROR");
-                }
-            }
+            
         }
     }
 }
