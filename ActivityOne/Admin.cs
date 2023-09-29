@@ -29,10 +29,9 @@ namespace ActivityOne
             int dataGridViewWidth = UserInfo.Width;
             int totalWidth = dataGridViewWidth - UserInfo.RowHeadersWidth;
 
-            // Define the percentage width for each column
             double idColumnWidthPercentage = 10; // 10% of the total width
-            double nameColumnWidthPercentage = 30; // 30% of the total width
-            double emailColumnWidthPercentage = 20; // 20% of the total width
+            double nameColumnWidthPercentage = 20; // 30% of the total width
+            double emailColumnWidthPercentage = 30; // 20% of the total width
             double usernameColumnWidthPercentage = 20; // 20% of the total width
             double activationColumnWidthPercentage = 20; // 20% of the total width
 
@@ -81,6 +80,11 @@ namespace ActivityOne
         }
         private void Activate_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Do you want to activate this account?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
             int selectedRowIndex = UserInfo.SelectedCells[0].RowIndex;
             if (selectedRowIndex >= 0 && selectedRowIndex < UserInfo.Rows.Count)
             {
@@ -102,7 +106,7 @@ namespace ActivityOne
                             }
                             else
                             {
-                                string activateAccountQuery = "UPDATE userlist SET Activation = 'Active' WHERE Username = @Username";
+                                string activateAccountQuery = "UPDATE userlist SET Activation = 'Active', Attempt = '0' WHERE Username = @Username";
                                 using (MySqlCommand activateAccountCommand = new MySqlCommand(activateAccountQuery, connection))
                                 {
                                     activateAccountCommand.Parameters.AddWithValue("@Username", selectedUsername);
@@ -175,8 +179,6 @@ namespace ActivityOne
                     UserInfo.Columns[6].Visible = false; //hashedpass
                     UserInfo.Columns[7].Visible = false; //fixedsalt
                     UserInfo.Columns[8].Visible = false; //perusersalt
-                    UserInfo.Columns[9].Visible = false; //photodata
-                    UserInfo.Columns[10].Visible = false; //photoname
                 }
                 catch (Exception ex)
                 {
@@ -189,5 +191,111 @@ namespace ActivityOne
             }
         }
 
+        private void Deactivate_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to deactivate this account?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            int selectedRowIndex = UserInfo.SelectedCells[0].RowIndex;
+            if (selectedRowIndex >= 0 && selectedRowIndex < UserInfo.Rows.Count)
+            {
+                string selectedUsername = UserInfo.Rows[selectedRowIndex].Cells["Username"].Value.ToString();
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                    {
+                        connection.Open();
+                        string checkUsernameQuery = "SELECT Activation FROM userlist WHERE Username = @Username";
+                        using (MySqlCommand checkUsernameCommand = new MySqlCommand(checkUsernameQuery, connection))
+                        {
+                            checkUsernameCommand.Parameters.AddWithValue("@Username", selectedUsername);
+                            object activationStatusObj = checkUsernameCommand.ExecuteScalar();
+                            string activationStatus = (activationStatusObj != null) ? activationStatusObj.ToString() : "";
+                            if (activationStatus != "Active")
+                            {
+                                MessageBox.Show("Account is already deactivated!.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                string activateAccountQuery = "UPDATE userlist SET Activation = 'Inactive', Attempt = '0' WHERE Username = @Username";
+                                using (MySqlCommand activateAccountCommand = new MySqlCommand(activateAccountQuery, connection))
+                                {
+                                    activateAccountCommand.Parameters.AddWithValue("@Username", selectedUsername);
+                                    int rowsAffected = activateAccountCommand.ExecuteNonQuery();
+                                    if (rowsAffected > 0)
+                                    {
+                                        MessageBox.Show("Account has been successfully deactivated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Account deactivation failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please select a valid row to activate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete this account?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No) 
+            {
+                return;
+            }
+
+            int selectedRowIndex = UserInfo.SelectedCells[0].RowIndex;
+            if (selectedRowIndex >= 0 && selectedRowIndex < UserInfo.Rows.Count)
+            {
+                string selectedUsername = UserInfo.Rows[selectedRowIndex].Cells["Username"].Value.ToString();
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                    {
+                        connection.Open();
+                        string checkUsernameQuery = "SELECT * FROM userlist WHERE Username = @Username";
+                        using (MySqlCommand checkUsernameCommand = new MySqlCommand(checkUsernameQuery, connection))
+                        {
+                            checkUsernameCommand.Parameters.AddWithValue("@Username", selectedUsername);
+                            object activationStatusObj = checkUsernameCommand.ExecuteScalar();
+                            string activationStatus = (activationStatusObj != null) ? activationStatusObj.ToString() : "";
+
+                            string activateAccountQuery = "DELETE FROM `userlist` WHERE Username = @Username";
+                            using (MySqlCommand activateAccountCommand = new MySqlCommand(activateAccountQuery, connection))
+                            {
+                                activateAccountCommand.Parameters.AddWithValue("@Username", selectedUsername);
+                                int rowsAffected = activateAccountCommand.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Account has been successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Account deletion failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                LoadData();
+            }
+        }
     }
 }

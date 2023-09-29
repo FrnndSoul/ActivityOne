@@ -16,6 +16,7 @@ namespace ActivityOne
 {
     public partial class LoginForm : Form
     {
+        
         public class HashHelper
         {
             public static string HashString(string input)
@@ -47,6 +48,7 @@ namespace ActivityOne
             Createbtn.FlatAppearance.BorderSize = 0;
             adminFormInstance = new AdminForm();
             createAccountInstance = new CreateAccount();
+
         }        
         private void Showpass_CheckedChanged(object sender, EventArgs e)
         {

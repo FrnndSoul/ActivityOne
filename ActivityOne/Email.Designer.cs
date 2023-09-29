@@ -56,7 +56,7 @@
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameBox.Enabled = false;
             this.usernameBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameBox.Location = new System.Drawing.Point(185, 151);
+            this.usernameBox.Location = new System.Drawing.Point(205, 160);
             this.usernameBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.ReadOnly = true;
@@ -68,7 +68,7 @@
             this.passwordBox.BackColor = System.Drawing.Color.White;
             this.passwordBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordBox.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.passwordBox.Location = new System.Drawing.Point(117, 248);
+            this.passwordBox.Location = new System.Drawing.Point(117, 234);
             this.passwordBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
@@ -114,7 +114,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(113, 190);
+            this.label2.Location = new System.Drawing.Point(113, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(568, 220);
             this.label2.TabIndex = 4;
@@ -124,7 +124,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(657, 255);
+            this.checkBox1.Location = new System.Drawing.Point(657, 241);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(18, 17);
             this.checkBox1.TabIndex = 8;

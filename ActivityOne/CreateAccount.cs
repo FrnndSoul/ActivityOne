@@ -34,6 +34,12 @@ namespace ActivityOne
             string username = Username.Text;
             string email = Email.Text;
             string password = PasswordBox.Text;
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("PLEASE ENTER ALL FIELDS!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             if (username.ToLower() == "admin")
             {
                 MessageBox.Show("Cannot register with admin as a username","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Stop);

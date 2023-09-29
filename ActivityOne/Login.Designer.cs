@@ -181,6 +181,9 @@
             // 
             // Username
             // 
+            this.Username.AcceptsReturn = true;
+            this.Username.AcceptsTab = true;
+            this.Username.AllowDrop = true;
             this.Username.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Username.ForeColor = System.Drawing.SystemColors.WindowFrame;
@@ -232,8 +235,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox Username;
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label UserLabel;
         private System.Windows.Forms.Label PassLabel;
@@ -246,6 +247,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox Username;
     }
 }
 

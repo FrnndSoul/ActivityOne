@@ -34,7 +34,8 @@
             this.Backbtn = new System.Windows.Forms.Button();
             this.Activate = new System.Windows.Forms.Button();
             this.Search = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Deactivate = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,27 +86,42 @@
             // 
             // Search
             // 
-            this.Search.Location = new System.Drawing.Point(84, 12);
+            this.Search.Location = new System.Drawing.Point(12, 12);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(704, 22);
+            this.Search.Size = new System.Drawing.Size(776, 22);
             this.Search.TabIndex = 4;
+            this.Search.Tag = "";
             this.Search.TextChanged += new System.EventHandler(this.Search_TextChanged);
             // 
-            // label1
+            // Deactivate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "SEARCH:";
+            this.Deactivate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.Deactivate.Location = new System.Drawing.Point(156, 406);
+            this.Deactivate.Name = "Deactivate";
+            this.Deactivate.Size = new System.Drawing.Size(137, 31);
+            this.Deactivate.TabIndex = 5;
+            this.Deactivate.Text = "Deactivate";
+            this.Deactivate.UseVisualStyleBackColor = true;
+            this.Deactivate.Click += new System.EventHandler(this.Deactivate_Click);
+            // 
+            // Delete
+            // 
+            this.Delete.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold);
+            this.Delete.Location = new System.Drawing.Point(299, 407);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(137, 31);
+            this.Delete.TabIndex = 6;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Delete);
+            this.Controls.Add(this.Deactivate);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.Activate);
             this.Controls.Add(this.Backbtn);
@@ -128,6 +144,7 @@
         private System.Windows.Forms.Button Backbtn;
         private System.Windows.Forms.Button Activate;
         private System.Windows.Forms.TextBox Search;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Deactivate;
+        private System.Windows.Forms.Button Delete;
     }
 }
