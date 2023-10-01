@@ -16,6 +16,8 @@ namespace ActivityOne
 {
     public partial class LoginForm : Form
     {
+        public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
+        public MySqlConnection connection = new MySqlConnection(mysqlcon);
         
         public class HashHelper
         {
@@ -33,10 +35,6 @@ namespace ActivityOne
                 }
             }
         }
-        public static string mysqlcon = "server=localhost;user=root;database=userhub;password=";
-        public MySqlConnection connection = new MySqlConnection(mysqlcon);
-        private AdminForm adminFormInstance;
-        private CreateAccount createAccountInstance;
         public LoginForm()
         {
             InitializeComponent();
@@ -46,8 +44,6 @@ namespace ActivityOne
             SigninButton.FlatAppearance.BorderSize = 0;
             Forgotbtn.FlatAppearance.BorderSize = 0;
             Createbtn.FlatAppearance.BorderSize = 0;
-            adminFormInstance = new AdminForm();
-            createAccountInstance = new CreateAccount();
 
         }        
         private void Showpass_CheckedChanged(object sender, EventArgs e)
@@ -60,7 +56,9 @@ namespace ActivityOne
             string password = Password.Text;
             if (username == "admin" && password == "admin123")
             {
-                ShowAdminForm();
+                ClearFields();
+                AdminForm admin = new AdminForm();
+                admin.Show();
                 return;
             }
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -97,9 +95,12 @@ namespace ActivityOne
 
                                     if (hashedPassword == hashedPasswordFromDB)
                                     {
-                                        ResetPUK(DUsername);
-                                        ShowUserForm(DID, DName, DUsername, DEmail);
                                         ClearFields();
+                                        ResetPUK(DUsername);
+                                        MessageBox.Show("Login success!", "WELCOME", MessageBoxButtons.OK);
+                                        UserForm userForm = new UserForm();
+                                        userForm.LoadData(DID, DName, DUsername, DEmail);
+                                        userForm.Show();
                                         return;
                                     }
                                     else
@@ -129,21 +130,6 @@ namespace ActivityOne
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ClearFields();
             }
-        }
-        private void ShowAdminForm()
-        {
-            MessageBox.Show("ADMIN LOG IN COMPLETE!", "WELCOME BOSS!");
-            adminFormInstance.Show();
-            adminFormInstance.LoadData();
-            ClearFields();
-        }
-        public void refresh()
-        {
-            adminFormInstance.LoadData();
-        }
-        private void ShowCreateAccount()
-        {
-            createAccountInstance.ShowDialog();
         }
         private void ShowUserForm(string id, string name, string username, string email)
         {
@@ -264,7 +250,8 @@ namespace ActivityOne
         }
         private void Createbtn_Click(object sender, EventArgs e)
         {
-            ShowCreateAccount();
+            CreateAccount createAccount = new CreateAccount();
+            createAccount.Show();
         }
         private void Forgotbtn_Click(object sender, EventArgs e)
         {
@@ -272,7 +259,7 @@ namespace ActivityOne
             if (result == DialogResult.Yes)
             {
                 ForgotPassword forgotPassword = new ForgotPassword();
-                forgotPassword.ShowDialog();
+                forgotPassword.Show();
             }
         }
     }

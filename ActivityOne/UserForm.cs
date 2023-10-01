@@ -81,6 +81,7 @@ namespace ActivityOne
                     selectedImagePath = openFileDialog.FileName;
                     imageData = File.ReadAllBytes(selectedImagePath);
                     pictureBox1.Image = Image.FromFile(selectedImagePath);
+
                 }
             }
             DialogResult result = MessageBox.Show("Do you want to use this as your profile photo?","Confirmation",MessageBoxButtons.YesNo);
@@ -130,6 +131,11 @@ namespace ActivityOne
                 }
             }
             
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
